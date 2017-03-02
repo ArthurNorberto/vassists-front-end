@@ -1,0 +1,26 @@
+[
+    {
+      "CodigoPermissao": 1,
+      "Seguradora": "Allianz",
+	  "Painel": "Usuários",
+      "Pagina" : "Alterar Senha"
+    },
+	{
+      "CodigoPermissao": 2,
+      "Seguradora": "Allianz",
+	  "Painel": "Usuários",
+      "Pagina" : "Cadastrar Usuário"
+    },
+	{
+      "CodigoPermissao": 3,
+      "Seguradora": "Allianz",
+	  "Painel": "Desempenho",
+      "Pagina" : "Telefonia"
+    },
+	{
+      "CodigoPermissao": 4,
+      "Seguradora": "Bradesco",
+	  "Painel": "Usuários",
+      "Pagina" : "Alterar Senha"
+    }
+]

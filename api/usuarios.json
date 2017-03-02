@@ -1,0 +1,50 @@
+[
+    {
+      "CodigoUsuario": 1,
+      "TipoAcesso": "U",
+      "CodigoSeguradora" : "",
+      "TipoPessoa" : "F",
+      "Nome" : "Usuário Legal",
+      "LoginCpfCnpj" : "usuario.legal",
+      "Telefone" : "(99) 9-9999-9999",
+      "Email" : "usuario@legal.com",
+      "UltimoAcesso" : "ES",
+      "CodigoChat" : "A"
+    },
+	{
+      "CodigoUsuario": 2,
+      "TipoAcesso": "U",
+      "CodigoSeguradora" : "",
+      "TipoPessoa" : "F",
+      "Nome" : "Usuário Feio",
+      "LoginCpfCnpj" : "usuario.feio",
+      "Telefone" : "(99) 9-9999-9999",
+      "Email" : "usuario@feio.com",
+      "UltimoAcesso" : "ES",
+      "CodigoChat" : "A"
+    },
+	{
+      "CodigoUsuario": 3,
+      "TipoAcesso": "U",
+      "CodigoSeguradora" : "",
+      "TipoPessoa" : "F",
+      "Nome" : "Usuário Chato",
+      "LoginCpfCnpj" : "usuario.chato",
+      "Telefone" : "(99) 9-9999-9999",
+      "Email" : "usuario@chato.com",
+      "UltimoAcesso" : "ES",
+      "CodigoChat" : "A"
+    }
+	,{
+      "CodigoUsuario": 4,
+      "TipoAcesso": "U",
+      "CodigoSeguradora" : "",
+      "TipoPessoa" : "F",
+      "Nome" : "Usuário Maneiro",
+      "LoginCpfCnpj" : "usuario.Maneiro",
+      "Telefone" : "(99) 9-9999-9999",
+      "Email" : "usuario@Maneiro.com",
+      "UltimoAcesso" : "ES",
+      "CodigoChat" : "A"
+    }
+]
