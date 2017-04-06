@@ -1,4 +1,4 @@
-angular.module('homeBasedApp')
+angular.module('vassistsApp')
   .directive('uiNav', ['$timeout', function($timeout) {
     return {
       restrict: 'AC',

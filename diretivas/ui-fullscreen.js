@@ -1,4 +1,4 @@
- angular.module('homeBasedApp')
+ angular.module('vassistsApp')
   .directive('uiFullscreen', ['uiLoad', 'JQ_CONFIG', '$document', '$window', function(uiLoad, JQ_CONFIG, $document, $window) {
     return {
       restrict: 'AC',

@@ -6,12 +6,10 @@
         var vm = this;
 
         // Inicialização de variáveis
-        var infoUsuario = $cookies.getObject('infoUsuario');
-        vm.menu = [];
 
 
 
     }
 
-    angular.module('homeBasedApp').controller('NavController', NavController);
+    angular.module('vassistsApp').controller('NavController', NavController);
 })();

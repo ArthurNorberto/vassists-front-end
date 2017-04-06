@@ -9,8 +9,8 @@
 
         // config
         $scope.app = {
-            name: 'Área da Seguradora App',
-            version: '0.0.0',
+            name: 'VAssists App',
+            version: '1.0.0',
             // for chart colors
             color: {
                 primary: '#7266ba',
@@ -45,6 +45,6 @@
     }
 
     angular
-        .module('homeBasedApp')
+        .module('vassistsApp')
         .controller('AppController', AppController);
 })();

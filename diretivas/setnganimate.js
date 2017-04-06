@@ -1,4 +1,4 @@
-angular.module('homeBasedApp')
+angular.module('vassistsApp')
   .directive('setNgAnimate', ['$animate', function ($animate) {
     return {
         link: function ($scope, $element, $attrs) {

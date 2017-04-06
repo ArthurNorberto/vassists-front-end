@@ -1,4 +1,4 @@
-angular.module('homeBasedApp')
+angular.module('vassistsApp')
   .directive('uiScrollTo', ['$location', '$anchorScroll', function($location, $anchorScroll) {
     return {
       restrict: 'AC',

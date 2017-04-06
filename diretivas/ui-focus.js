@@ -1,4 +1,4 @@
-angular.module('homeBasedApp')
+angular.module('vassistsApp')
   .directive('uiFocus', function($timeout, $parse) {
     return {
       link: function(scope, element, attr) {

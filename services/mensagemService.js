@@ -76,4 +76,4 @@ function MensagemService ($injector){
 }
 
 // Registrando o serviço
-angular.module('homeBasedApp').factory('MensagemService', MensagemService);
+angular.module('vassistsApp').factory('MensagemService', MensagemService);

@@ -4,7 +4,7 @@
 
     function HeaderController($state, $cookies, $http, LoginService) {
         var vm = this;
-        var infoUsuario = $cookies.get('infoUsuario');
+        //var infoUsuario = $cookies.get('infoUsuario');
 
         // Inicialização de variáveis
         vm.sair = sair;
@@ -12,33 +12,29 @@
 
 
         // Funções executadas ao iniciar o controlador
-        if (infoUsuario == null) {
-            $state.go('login');
-            return;
-        };
 
         // Declaração de funções
         function sair() {
 
-            if (infoUsuario == null) {
-                $state.go('login');
-                return;
-            }
+            $cookies.remove('infoUsuario');
+            $state.go('login');
 
-            LoginService.desconectar('39143c0b-2304-4fec-858e-6f22dc880c9a').then(function () {
-                $cookies.remove('infoUsuario');
-                $cookies.remove('modulo');
-                $state.go('login');
-            });
+            // LoginService.desconectar('39143c0b-2304-4fec-858e-6f22dc880c9a').then(function () {
+            //     $cookies.remove('infoUsuario');
+            //     $cookies.remove('modulo');
+            //     $state.go('login');
+            // });
         };
 
 
         function usuarioLogado() {
-            var infoUsuario = $cookies.getObject('infoUsuario');
+            // var infoUsuario = $cookies.getObject('infoUsuario');
 
-            return infoUsuario === undefined ? '' : infoUsuario.Nome.toLowerCase().replace(/(?:^|\s)[a-z]/g, function (m) {
-                return m.toUpperCase();
-            });
+            return 'TESTE';
+
+            // return infoUsuario === undefined ? '' : infoUsuario.Nome.toLowerCase().replace(/(?:^|\s)[a-z]/g, function (m) {
+            //     return m.toUpperCase();
+            // });
         };
 
 
@@ -47,5 +43,5 @@
 
     }
 
-    angular.module('homeBasedApp').controller('HeaderController', HeaderController);
+    angular.module('vassistsApp').controller('HeaderController', HeaderController);
 })();

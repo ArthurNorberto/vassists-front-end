@@ -5,8 +5,8 @@
 
         //Registrando os métodos e variáveis no serviço
         var service = {
-            urlBase: "http://10.0.17.67/Autoglass.Seguro.API/",
-            urlAutenticacao: "http://10.0.17.67/Autoglass.Seguranca.API/",
+            urlBase: "",
+            urlAutenticacao: "",
             request: request,
             verificarAutenticacao: verificarAutenticacao,
             responseError: responseError
@@ -33,7 +33,7 @@
             if (!toState.publico && !infoUsuario) {
                 event.preventDefault();
                 toastr.warning("Sua sessão expirou. Logue-se novamente");
-                $injector.get("$state").go('login');
+               // $injector.get("$state").go('login');
             } else if (infoUsuario) {
                 $injector.get("$http").defaults.headers.common['Token_Autorizacao'] = infoUsuario.Token;
             }
@@ -43,7 +43,7 @@
         function responseError(response) {
             if (response.status == 401) {
                 $cookies.remove("infoUsuario");
-                $injector.get('$state').go("login");
+             //   $injector.get('$state').go("login");
                 toastr.warning("Sua sessão expirou! Por favor, logue-se novamente");
                 return $q.reject(response);
             } else if (response.status == 500) {
@@ -67,6 +67,6 @@
     }; // Fim da função principal
 
     //Registrando o serviço na aplicação
-    angular.module('homeBasedApp').factory("ApiService", ApiService);
+    angular.module('vassistsApp').factory("ApiService", ApiService);
 
 })();

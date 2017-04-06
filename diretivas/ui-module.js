@@ -1,4 +1,4 @@
-angular.module('homeBasedApp')
+angular.module('vassistsApp')
   .directive('uiModule', ['MODULE_CONFIG','uiLoad', '$compile', function(MODULE_CONFIG, uiLoad, $compile) {
     return {
       restrict: 'A',

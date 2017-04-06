@@ -14,6 +14,6 @@
         return uploadService;
     }
 
-    angular.module('homeBasedApp')
+    angular.module('vassistsApp')
         .factory('UploadService', UploadService);
 })();

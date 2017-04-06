@@ -41,6 +41,6 @@
 
 
     }
-    angular.module('homeBasedApp')
+    angular.module('vassistsApp')
         .factory('LoginService', LoginService);
 })();

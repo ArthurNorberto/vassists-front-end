@@ -33,29 +33,36 @@
 
         function autenticar() {
 
-            LoginService.autenticar(vm.dados).then(function() {
+            var expiraEm = new Date(new Date().getTime() + (24 * 60 * 60 * 1000));
 
-                dadosLogin = LoginService.dados;
+            $cookies.putObject('infoUsuario', dadosLogin, { expires: expiraEm });
+            $http.defaults.headers.common['Token_Autorizacao'] = 'dsadsadas';
 
-                var expiraEm = new Date(new Date().getTime() + (24 * 60 * 60 * 1000));
+            $state.go('app.inicio');
 
-                $cookies.putObject('infoUsuario', dadosLogin, { expires: expiraEm });
-                $http.defaults.headers.common['Token_Autorizacao'] = dadosLogin.Token;
+            // LoginService.autenticar(vm.dados).then(function() {
 
-                toastr.info('Bem-vindo ' + dadosLogin.Nome);
+            //     dadosLogin = LoginService.dados;
 
-                $state.go('app.inicio');
+            //     var expiraEm = new Date(new Date().getTime() + (24 * 60 * 60 * 1000));
+
+            //     $cookies.putObject('infoUsuario', dadosLogin, { expires: expiraEm });
+            //     $http.defaults.headers.common['Token_Autorizacao'] = dadosLogin.Token;
+
+            //     toastr.info('Bem-vindo ' + dadosLogin.Nome);
+
+            //     $state.go('app.inicio');
 
 
 
 
-            }, function(resposta) {
-                vm.erro = resposta.data.Message;
+            // }, function(resposta) {
+            //     vm.erro = resposta.data.Message;
 
-            });
+            // });
         };
 
     }
 
-    angular.module('homeBasedApp').controller('LoginController', LoginController);
+    angular.module('vassistsApp').controller('LoginController', LoginController);
 })();

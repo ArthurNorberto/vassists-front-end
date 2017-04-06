@@ -1,4 +1,4 @@
-angular.module('homeBasedApp')
+angular.module('vassistsApp')
   .directive('uiShift', ['$timeout', function($timeout) {
     return {
       restrict: 'A',

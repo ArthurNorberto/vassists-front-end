@@ -2,7 +2,7 @@
 
 (function() {
     angular
-        .module('homeBasedApp', [
+        .module('vassistsApp', [
             'oc.lazyLoad',
             'ui.router',
             'ui.bootstrap',

@@ -2,7 +2,7 @@
 
 /* Filters */
 // need load the moment.js to use this filter. 
-angular.module('homeBasedApp')
+angular.module('vassistsApp')
   .filter('fromNow', function() {
     return function(date) {
       return moment(date).fromNow();

@@ -37,6 +37,6 @@
     };
 
 
-    angular.module('homeBasedApp')
+    angular.module('vassistsApp')
         .factory('DownloadService', DownloadService);
 })();
