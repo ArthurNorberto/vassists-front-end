@@ -26,10 +26,13 @@
     <!-- global styles -->
     <link rel="stylesheet" type="text/css" href="css/app.css" />
     <link rel="stylesheet" type="text/css" href="css/custom.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css">
     <!-- Favicon -->
     <link type="image/x-icon" href="img/favicon.png" rel="shortcut icon" />
     <!-- google font libraries -->
     <link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900|Montserrat:400,700' rel='stylesheet'
+        type='text/css'>
     <!--[if lt IE 9]>
 		<script src="js/html5shiv.js"></script>
 		<script src="js/respond.min.js"></script>
@@ -39,76 +42,87 @@
 <body>
     <div class="app" id="app" ng-class="{'app-header-fixed':app.settings.headerFixed, 'app-aside-fixed':app.settings.asideFixed, 'app-aside-folded':app.settings.asideFolded, 'app-aside-dock':app.settings.asideDock, 'container':app.settings.container}"
         ui-view></div>
-        <!-- jQuery -->
-        <script src="componentes/jquery/jquery.min.js"></script>
-        <script src="componentes/bootstrap/js/bootstrap.min.js"></script>
-        <script src="componentes/jquery-ui/jquery-ui.min.js"></script>
-        <script src="componentes/maskedinput/jquery.maskedinput.min.js"></script>
-        <script src="componentes/moment/moment.min.js"></script>
-        <script src="componentes/sweetalert/sweetalert.min.js"></script>
-        <script src="componentes/notifyjs/notify.js"></script>
-        <!-- angular libs -->
-        <script src="componentes/angular/angular.min.js"></script>
-        <script src="componentes/angular/angular-locale_pt-br.js"></script>
-        <script src="componentes/angular-animate/angular-animate.min.js"></script>
-        <script src="componentes/angular-touch/angular-touch.min.js"></script>
-        <script src="componentes/angular-ui-router/angular-ui-router.min.js"></script>
-        <script src="componentes/angular-cookies/angular-cookies.min.js"></script>
-        <script src="componentes/oclazyload/ocLazyLoad.min.js"></script>
-        <script src="componentes/angular-loading-bar/loading-bar.min.js"></script>
-        <script src="componentes/angular-ui-bootstrap/ui-bootstrap-tpls.js"></script>
-        <script src="componentes/ng-table/ng-table.min.js"></script>
-        <script src="componentes/toastr/toastr.min.js"></script>
-        <script src="componentes/angular-input-masks/masks.js"></script>
-        <script src="componentes/ngMask.js"></script>
-        <script src="componentes/masonry.pkgd.min.js"></script>
-        <script src="componentes/imagesloaded.pkgd.min.js"></script>
-        <script src="componentes/angular-bootstrap-lightbox/angular-bootstrap-lightbox.js"></script>
-        <script src="componentes/angular-storage/angular-storage.min.js"></script>
-        <script src="componentes/ng-file-upload/ng-file-upload.min.js"></script>
-        <script src="componentes/ng-file-upload/ng-file-upload-shim.js"></script>
-        <script src="componentes/angular-input-stars/angular-input-stars.js"></script>
-        <script src="componentes/angular-easypie/angular.easypiechart.min.js"></script>
-        <!-- angular scripts -->
-        <script src="app/core/app.js"></script>
-        <script src="diretivas/ui-load.js"></script>
-        <script src="diretivas/fromNow.js"></script>
-        <script src="diretivas/setnganimate.js"></script>
-        <script src="diretivas/ui-butterbar.js"></script>
-        <script src="diretivas/ui-focus.js"></script>
-        <script src="diretivas/ui-jq.js"></script>
-        <script src="diretivas/ui-module.js"></script>
-        <script src="diretivas/ui-nav.js"></script>
-        <script src="diretivas/ui-scroll.js"></script>
-        <script src="diretivas/ui-shift.js"></script>
-        <script src="diretivas/ui-toggleclass.js"></script>
-        <script src="diretivas/bootstrap.js"></script>
-        <script src="diretivas/atg-datepicker.js"></script>
-        <script src="diretivas/date.format.js"></script>
-        <script src="diretivas/atg-placa.js"></script>
-        <script src="componentes/angular-google-charts/ng-google-chart.min.js"></script>
-        <script src="componentes/angular-chosen/chosen.js"></script>
-        <script src="componentes/angular-chosen/angular-chosen.min.js"></script>
-        <script src="componentes/angular-chosen/chosen.jquery.min.js"></script>
-        <!-- Controllers -->
-        <script src="app/core/appController.js"></script>
-        <script src="app/core/headerController.js"></script>
-        <script src="app/core/navController.js"></script>
-        <script src="app/core/forbiddenController.js"></script>
-        <script src="app/login/loginController.js"></script>
-        <script src="app/inicio/inicioController.js"></script>
-       
-        <!-- Services -->
-       
-        <script src="services/apiService.js"></script>
-        <script src="services/loginService.js"></script>
-        <script src="services/mensagemService.js"></script>
-       
-        <script src="services/downloadService.js"></script>
-        <script src="services/uploadService.js"></script>
-        
-        <!-- Directives -->
-        
+    <!-- jQuery -->
+    <script src="componentes/jquery/jquery.min.js"></script>
+    <script src="componentes/bootstrap/js/bootstrap.min.js"></script>
+    <script src="componentes/jquery-ui/jquery-ui.min.js"></script>
+    <script src="componentes/maskedinput/jquery.maskedinput.min.js"></script>
+    <script src="componentes/moment/moment.min.js"></script>
+    <script src="componentes/sweetalert/sweetalert.min.js"></script>
+    <script src="componentes/notifyjs/notify.js"></script>
+    <!-- angular libs -->
+    <script src="componentes/angular/angular.min.js"></script>
+    <script src="componentes/angular/angular-locale_pt-br.js"></script>
+    <script src="componentes/angular-animate/angular-animate.min.js"></script>
+    <script src="componentes/angular-touch/angular-touch.min.js"></script>
+    <script src="componentes/angular-ui-router/angular-ui-router.min.js"></script>
+    <script src="componentes/angular-cookies/angular-cookies.min.js"></script>
+    <script src="componentes/oclazyload/ocLazyLoad.min.js"></script>
+    <script src="componentes/angular-loading-bar/loading-bar.min.js"></script>
+    <script src="componentes/angular-ui-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="componentes/ng-table/ng-table.min.js"></script>
+    <script src="componentes/toastr/toastr.min.js"></script>
+    <script src="componentes/angular-input-masks/masks.js"></script>
+    <script src="componentes/ngMask.js"></script>
+    <script src="componentes/masonry.pkgd.min.js"></script>
+    <script src="componentes/imagesloaded.pkgd.min.js"></script>
+    <script src="componentes/angular-bootstrap-lightbox/angular-bootstrap-lightbox.js"></script>
+    <script src="componentes/angular-storage/angular-storage.min.js"></script>
+    <script src="componentes/ng-file-upload/ng-file-upload.min.js"></script>
+    <script src="componentes/ng-file-upload/ng-file-upload-shim.js"></script>
+    <script src="componentes/angular-input-stars/angular-input-stars.js"></script>
+    <script src="componentes/angular-easypie/angular.easypiechart.min.js"></script>
+    <script src="componentes/ng-map.min.js"></script>
+    <!-- angular scripts -->
+    <script src="app/core/app.js"></script>
+    <script src="diretivas/ui-load.js"></script>
+    <script src="diretivas/fromNow.js"></script>
+    <script src="diretivas/setnganimate.js"></script>
+    <script src="diretivas/ui-butterbar.js"></script>
+    <script src="diretivas/ui-focus.js"></script>
+    <script src="diretivas/ui-jq.js"></script>
+    <script src="diretivas/ui-module.js"></script>
+    <script src="diretivas/ui-nav.js"></script>
+    <script src="diretivas/ui-scroll.js"></script>
+    <script src="diretivas/ui-shift.js"></script>
+    <script src="diretivas/ui-toggleclass.js"></script>
+    <script src="diretivas/bootstrap.js"></script>
+    <script src="diretivas/atg-datepicker.js"></script>
+    <script src="diretivas/date.format.js"></script>
+    <script src="diretivas/atg-placa.js"></script>
+    <script src="componentes/angular-google-charts/ng-google-chart.min.js"></script>
+    <script src="componentes/angular-chosen/chosen.js"></script>
+    <script src="componentes/angular-chosen/angular-chosen.min.js"></script>
+    <script src="componentes/angular-chosen/chosen.jquery.min.js"></script>
+
+    <script src="componentes/main.js"></script>
+    <script src="componentes/modernizr-2.7.1.js"></script>
+    <script src="componentes/wow.min.js"></script>
+    <!-- Controllers -->
+    <script src="app/core/appController.js"></script>
+    <script src="app/core/headerController.js"></script>
+    <script src="app/core/navController.js"></script>
+    <script src="app/core/forbiddenController.js"></script>
+    <script src="app/login/loginController.js"></script>
+    <script src="app/inicio/inicioController.js"></script>
+    <script src="app/painel/dados/meusDadosController.js"></script>
+    <script src="app/landpage/landPageController.js"></script>
+    <script src="app/registros/cadastrarPontosController.js"></script>
+    <script src="app/registros/meusPontosController.js"></script>
+
+    <!-- Services -->
+
+    <script src="services/apiService.js"></script>
+    <script src="services/loginService.js"></script>
+    <script src="services/mensagemService.js"></script>
+
+    <script src="services/downloadService.js"></script>
+    <script src="services/uploadService.js"></script>
+
+    
+
+    <!-- Directives -->
+
 </body>
 
 </html>

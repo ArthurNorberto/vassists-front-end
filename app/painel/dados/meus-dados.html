@@ -1,0 +1,63 @@
+<div class="bg-system-light lter b-b wrapper-md ng-scope">
+    <h1 class="m-n font-thin h3">Meus Dados</h1>
+    <small class="text-muted">Painel <i class="fa fa-angle-right"></i> Meus Dados</small>
+</div>
+<div class="row">
+    <div class="wrapper-md">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading font-bold"><i class="fa fa-info" aria-hidden="true"></i> Edição
+                </div>
+                <div class="panel-body">
+                    <form method="get" name="alterarDadosForm">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Nome</label>
+                                        <input type="text" class="form-control input-sm" disabled="true" required ng-model="vm.dados.Nome">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Perfil</label>
+                                        <input type="text" class="form-control input-sm" disabled="true" required ng-model="vm.dados.Perfil">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Ultimo Login</label>
+                                        <input type="text" class="form-control input-sm" disabled="true" required ng-model="vm.dados.UltimoLogin">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Cidade</label>
+                                        <input type="text" class="form-control input-sm" disabled="true" required ng-model="vm.dados.Cidade">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>UF</label>
+                                        <input type="text" class="form-control input-sm" disabled="true" required ng-model="vm.dados.UF">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="line line-dashed b-b line-lg pull-in"></div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button type="submit" class="btn-sm btn btn-primary" ng-disabled="alterarDadosForm.$invalid"><i class="fa fa-save"></i> Salvar</button>
+                                <button type="button" ng-click="vm.alterarSenha();" class="btn-sm btn btn-outline-primary"><i class="fa fa-refresh"></i> Alterar Senha</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row row-sm text-center box-index">
+        </div>
+    </div>
+</div>

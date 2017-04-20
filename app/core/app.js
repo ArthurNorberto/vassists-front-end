@@ -1,6 +1,6 @@
 'use strict';
 
-(function() {
+(function () {
     angular
         .module('vassistsApp', [
             'oc.lazyLoad',
@@ -20,9 +20,10 @@
             'ngFileUpload',
             'localytics.directives',
             'angular-input-stars',
-            'easypiechart'
+            'easypiechart',
+            'ngMap'
         ])
-        .run(function($http, $rootScope, $cookies, $state, ApiService) {
+        .run(function ($http, $rootScope, $cookies, $state, ApiService) {
             toastr.options = {
                 "debug": false,
                 "positionClass": "toast-top-right margin-top-6",
@@ -34,18 +35,18 @@
                 "closeButton": true
             };
 
-            $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
+            $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
                 ApiService.verificarAutenticacao(event, toState, toParams, fromState, fromParams);
             });
         })
-        .config(function($httpProvider, $stateProvider, $urlRouterProvider, $ocLazyLoadProvider, LightboxProvider) {
+        .config(function ($httpProvider, $stateProvider, $urlRouterProvider, $ocLazyLoadProvider, LightboxProvider) {
 
             $ocLazyLoadProvider.config({
                 debug: false,
                 events: true,
             });
 
-            $urlRouterProvider.otherwise('/login');
+            $urlRouterProvider.otherwise('/landpage');
 
             $httpProvider.interceptors.push('ApiService');
 
@@ -54,6 +55,13 @@
                     url: '/login',
                     templateUrl: 'app/login/login.html',
                     controller: 'LoginController',
+                    controllerAs: 'vm',
+                    publico: true
+                })
+                .state('landpage', {
+                    url: '/landpage',
+                    templateUrl: 'app/landpage/landpage.html',
+                    controller: 'LandPageController',
                     controllerAs: 'vm',
                     publico: true
                 })
@@ -67,6 +75,24 @@
                     url: '/inicio',
                     templateUrl: 'app/inicio/inicio.html',
                     controller: 'InicioController',
+                    controllerAs: 'vm'
+                })
+                .state('app.meus-dados', {
+                    url: '/painel/meus-dados',
+                    templateUrl: 'app/painel/dados/meus-dados.html',
+                    controller: 'MeusDadosController',
+                    controllerAs: 'vm'
+                })
+                .state('app.cadastrar-pontos', {
+                    url: '/registros/cadastrar-pontos',
+                    templateUrl: 'app/registros/cadastrar-pontos.html',
+                    controller: 'CadastrarPontosController',
+                    controllerAs: 'vm'
+                })
+                .state('app.meus-pontos', {
+                    url: '/registros/meus-pontos',
+                    templateUrl: 'app/registros/meus-pontos.html',
+                    controller: 'MeusPontosController',
                     controllerAs: 'vm'
                 })
                 .state('app.forbidden', {

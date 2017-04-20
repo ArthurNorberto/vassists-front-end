@@ -7,6 +7,7 @@
         var service = {
             urlBase: "",
             urlAutenticacao: "",
+            urlGoogle : "https://maps.googleapis.com/maps/api/js?key=AIzaSyDyAj5uofof5uXMLSu8zeedIickSncGlf4",
             request: request,
             verificarAutenticacao: verificarAutenticacao,
             responseError: responseError
