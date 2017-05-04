@@ -9,19 +9,46 @@
                 <div class="panel-heading font-bold"><i class="fa fa-plus" aria-hidden="true"></i> Cadastro
                 </div>
                 <div class="panel-body">
-                    <form method="get" name="cadastrarPontos">
+                    <form method="get" name="cadastrarPontos" ng-submit="vm.cadastrarPonto();">
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label>Endereço</label>
-                                        <input type="text " class="form-control input-sm " required ng-model="vm.address">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Endereço</label>
+                                                <input places-auto-complete size="80" component-restrictions="{country:'br'}" type="text " class="form-control input-sm "
+                                                    ng-model="vm.address" on-place-changed="vm.placeChanged()">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Problema</label>
+                                                <select name="problemaSelect" class="form-control input-sm" ng-model="vm.dados.Codigo" required>
+                                        <option value="">Selecione um Problema</option>
+                                            <option value="1">Buraco</option>
+                                                <option value="2">Calçada</option>
+                                        </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Descreva o Problema</label>
+                                                <textarea rows="4" required class="form-control input-sm" ng-model="vm.dados.Descricao" cols="50"></textarea>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-md-8 ">
                                     <div class="form-group ">
                                         <div map-lazy-load="https://maps.google.com/maps/api/js" map-lazy-load-params="{{vm.googleMapsUrl}} ">
-                                            <ng-map center="{{vm.center}}" zoom="3" on-click="vm.placeMarker()"></ng-map>
+                                            <ng-map center="{{vm.center}}" on-click="vm.placeMarker()">
+
+                                            </ng-map>
                                         </div>
                                     </div>
                                 </div>
