@@ -2,16 +2,20 @@
 
 (function () {
 
-    function CadastrarPontosController($scope, $state, $cookies, ApiService, NgMap, NavigatorGeolocation, GeoCoder, MensagemService) {
+    function CadastrarPontosController($scope, $state, $cookies, ApiService, NgMap, NavigatorGeolocation, GeoCoder, MensagemService, PontosService) {
         var vm = this;
         vm.googleMapsUrl = ApiService.urlGoogle;
 
         vm.center = "-25.363882, 131.044922";
         vm.markers = [];
 
+        vm.listaProblemas = [];
+
         vm.cadastrarPonto = cadastrarPonto;
 
+        vm.dados = {};
 
+        listarTipos();
 
         //used for setting bounds of google map display
 
@@ -101,10 +105,7 @@
                 //Duas opções vão aparecer: Sim e Não
                 if (isConfirm) {
 
-
-
-
-
+                   
                 } else {
                     //Aqui o usuário clicou em "Não"
                 }
@@ -112,6 +113,19 @@
 
         };
 
+
+        function listarTipos() {
+
+            PontosService.listarTipos().then(function () {
+
+                vm.listaProblemas = PontosService.listaTipos;
+
+            }, function (resposta) {
+
+
+            });
+
+        };
 
 
 

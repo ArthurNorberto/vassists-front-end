@@ -1,0 +1,45 @@
+<div class="bg-system-light lter b-b wrapper-md ng-scope">
+    <h1 class="m-n font-thin h3">Gerenciar Usuários</h1>
+    <small class="text-muted">Administração <i class="fa fa-angle-right"></i> Gerenciar Usuários</small>
+</div>
+<div class="row">
+    <div class="wrapper-md">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading font-bold"><i class="fa fa-search" aria-hidden="true"></i> Filtro
+                </div>
+                <div class="panel-body">
+                    <form method="get" name="alterarDadosForm">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Nome do Usuário</label>
+                                        <input type="text" class="form-control input-sm" required ng-model="vm.filtro.Nome">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Perfil</label>
+                                        <select name="perfilSelect" class="form-control input-sm" required ng-options="Perfil.Codigo as Perfil.Descricao for Perfil in vm.listaPerfil"
+                                            ng-model="vm.filtro.CodigoPerfil">
+									<option value="">Selecione um Perfil</option></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="line line-dashed b-b line-lg pull-in"></div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button type="submit" class="btn-sm btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
+                                <button type="button" ng-click="vm.limpar();" class="btn-sm btn btn-default btn-addon"><i class="fa fa-undo"></i> Limpar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row row-sm text-center box-index">
+        </div>
+    </div>
+</div>

@@ -26,11 +26,10 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Problema</label>
-                                                <select name="problemaSelect" class="form-control input-sm" ng-model="vm.dados.Codigo" required>
-                                        <option value="">Selecione um Problema</option>
-                                            <option value="1">Buraco</option>
-                                                <option value="2">Calçada</option>
-                                        </select>
+                                                <select name="problemaSelect" class="form-control input-sm" ng-options="Problema.Codigo as Problema.Descricao for Problema in vm.listaProblemas"
+                                                    ng-model="vm.dados.CodigoProblema">
+									<option value="">Selecione um Problema</option></select>
+
                                             </div>
                                         </div>
                                     </div>

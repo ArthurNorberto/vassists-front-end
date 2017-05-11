@@ -58,6 +58,13 @@
                     controllerAs: 'vm',
                     publico: true
                 })
+                .state('cadastro', {
+                    url: '/cadastro',
+                    templateUrl: 'app/login/cadastro.html',
+                    controller: 'CadastroController',
+                    controllerAs: 'vm',
+                    publico: true
+                })
                 .state('landpage', {
                     url: '/landpage',
                     templateUrl: 'app/landpage/landpage.html',
@@ -81,6 +88,36 @@
                     url: '/painel/meus-dados',
                     templateUrl: 'app/painel/dados/meus-dados.html',
                     controller: 'MeusDadosController',
+                    controllerAs: 'vm'
+                })
+                .state('app.alterar-senha', {
+                    url: '/painel/alterar-senha',
+                    templateUrl: 'app/painel/dados/alterar-senha.html',
+                    controller: 'AlterarSenhaController',
+                    controllerAs: 'vm'
+                })
+                .state('app.administracao-relatorio', {
+                    url: '/administracao/relatorio',
+                    templateUrl: 'app/administracao/relatorio.html',
+                    controller: 'RelatorioController',
+                    controllerAs: 'vm'
+                })
+                .state('app.administracao-cadastrar-usuario', {
+                    url: '/administracao/cadastrar-usuario',
+                    templateUrl: 'app/administracao/cadastrar-usuario.html',
+                    controller: 'CadastrarUsuarioController',
+                    controllerAs: 'vm'
+                })
+                .state('app.administracao-gerenciar-usuario', {
+                    url: '/administracao/gerenciar-usuario',
+                    templateUrl: 'app/administracao/gerenciar-usuario.html',
+                    controller: 'GerenciarUsuarioController',
+                    controllerAs: 'vm'
+                })
+                .state('app.administracao-cadastrar-itens', {
+                    url: '/administracao/cadastrar-itens',
+                    templateUrl: 'app/administracao/cadastrar-itens.html',
+                    controller: 'CadastrarItensController',
                     controllerAs: 'vm'
                 })
                 .state('app.cadastrar-pontos', {

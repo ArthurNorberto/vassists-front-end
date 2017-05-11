@@ -1,37 +1,29 @@
 'use strict';
 (function () {
 
-    function LoginService($http, ApiService) {
+    function PontosService($http, ApiService) {
         //Declaração de variáveis
         var url = ApiService.urlBase;
 
         //Registrando os métodos e variáveis no serviço
         var service = {
-            dados: '',
-            usuario: {},
-            autenticar: autenticar,
-            desconectar: desconectar
+            listaTipos: '',
+
+            listarTipos: listarTipos
         };
 
         return service;
 
         //Declaração de funções
-        function autenticar(dadosUsuario) {
+        function listarTipos() {
             return $http
-                .get('api/Autenticacao/Autenticar', {
-                    Login: dadosUsuario.Login,
-                    Senha: dadosUsuario.Senha
-                })
+                .get('api/problemas.json')
                 .then(function (resposta) {
-                    service.dados = resposta.data;
+                    service.listaTipos = resposta.data;
                 });
         }
 
-
-       
-
-
     }
     angular.module('vassistsApp')
-        .factory('LoginService', LoginService);
+        .factory('PontosService', PontosService);
 })();
