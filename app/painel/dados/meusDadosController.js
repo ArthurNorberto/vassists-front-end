@@ -6,8 +6,8 @@
         var vm = this;
 
         vm.dados = {
-            Nome : 'TESTE',
-            Perfil : 'USUÁRIO',
+            Nome : 'ARTHUR',
+            Perfil : 'ADMINISTRADOR',
             UltimoLogin: '20/04/2017',
             UF: 'ES',
             Cidade : 'Vila Velha'

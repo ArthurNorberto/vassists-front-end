@@ -30,7 +30,7 @@
         function usuarioLogado() {
             // var infoUsuario = $cookies.getObject('infoUsuario');
 
-            return 'TESTE';
+            return 'ARTHUR';
 
             // return infoUsuario === undefined ? '' : infoUsuario.Nome.toLowerCase().replace(/(?:^|\s)[a-z]/g, function (m) {
             //     return m.toUpperCase();

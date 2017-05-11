@@ -46,7 +46,7 @@
                                 <div class="col-md-8 ">
                                     <div class="form-group ">
                                         <div map-lazy-load="https://maps.google.com/maps/api/js" map-lazy-load-params="{{vm.googleMapsUrl}} ">
-                                            <ng-map center="{{vm.center}}" on-click="vm.placeMarker()">
+                                            <ng-map center="current-position" on-click="vm.placeMarker()">
 
                                             </ng-map>
                                         </div>
