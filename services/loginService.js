@@ -3,7 +3,7 @@
 
     function LoginService($http, ApiService) {
         //Declaração de variáveis
-        var url = ApiService.urlAutenticacao;
+        var url = ApiService.urlBase;
 
         //Registrando os métodos e variáveis no serviço
         var service = {
@@ -18,7 +18,7 @@
         //Declaração de funções
         function autenticar(dadosUsuario) {
             return $http
-                .post(url + 'api/Autenticacao/Autenticar', {
+                .post(url + '/api/seguranca/login', {
                     Login: dadosUsuario.Login,
                     Senha: dadosUsuario.Senha
                 })
@@ -30,7 +30,7 @@
 
         function desconectar(token) {
             return $http
-                .post(url + 'api/Autenticacao/Desconectar', {
+                .post(url + '/api/seguranca/login', {
                     Token: token
                 })
                 .then(function (resposta) {

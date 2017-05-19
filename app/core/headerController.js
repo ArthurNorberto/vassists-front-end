@@ -4,7 +4,8 @@
 
     function HeaderController($state, $cookies, $http, LoginService) {
         var vm = this;
-        //var infoUsuario = $cookies.get('infoUsuario');
+
+        var infoUsuario = $cookies.getObject('infoUsuario');
 
         // Inicialização de variáveis
         vm.sair = sair;
@@ -28,13 +29,10 @@
 
 
         function usuarioLogado() {
-            // var infoUsuario = $cookies.getObject('infoUsuario');
 
-            return 'ARTHUR';
-
-            // return infoUsuario === undefined ? '' : infoUsuario.Nome.toLowerCase().replace(/(?:^|\s)[a-z]/g, function (m) {
-            //     return m.toUpperCase();
-            // });
+            return infoUsuario === undefined ? '' : infoUsuario.Nome.toLowerCase().replace(/(?:^|\s)[a-z]/g, function (m) {
+                return m.toUpperCase();
+            });
         };
 
 

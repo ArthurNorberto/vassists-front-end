@@ -9,8 +9,10 @@
         var service = {
             listaPerfil: '',
             usuario: '',
+            data: '',
             recuperarUsuario: recuperarUsuario,
-            listarPerfil: listarPerfil
+            listarPerfil: listarPerfil,
+            cadastro: cadastro
         };
 
         return service;
@@ -18,7 +20,7 @@
         //Declaração de funções
         function listarPerfil() {
             return $http
-                .get('api/perfil.json')
+                .get(url + '/api/perfil')
                 .then(function (resposta) {
                     service.listaPerfil = resposta.data;
                 });
@@ -29,6 +31,19 @@
                 .get('api/usuario.json')
                 .then(function (resposta) {
                     service.usuario = resposta.data;
+                });
+        };
+
+        function cadastro(dados) {
+            return $http
+                .post(url + '/api/seguranca/cadastro', {
+                    Nome: dados.Nome,
+                    Email: dados.Email,
+                    CodigoPerfil: dados.CodigoPerfil
+
+                })
+                .then(function (resposta) {
+                    service.data = resposta.data;
                 });
         };
 

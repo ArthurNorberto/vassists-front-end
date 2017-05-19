@@ -1,6 +1,6 @@
 'use strict';
 
-(function() {
+(function () {
 
     function LoginController($state, $cookies, $http, LoginService) {
         var vm = this;
@@ -33,33 +33,27 @@
 
         function autenticar() {
 
-            var expiraEm = new Date(new Date().getTime() + (24 * 60 * 60 * 1000));
+            LoginService.autenticar(vm.dados).then(function () {
 
-            $cookies.putObject('infoUsuario', dadosLogin, { expires: expiraEm });
-            $http.defaults.headers.common['Token_Autorizacao'] = 'dsadsadas';
+                dadosLogin = LoginService.dados;
 
-            $state.go('app.inicio');
+                var expiraEm = new Date(new Date().getTime() + (24 * 60 * 60 * 1000));
 
-            // LoginService.autenticar(vm.dados).then(function() {
+                $cookies.putObject('infoUsuario', dadosLogin, {
+                    expires: expiraEm
+                });
+                //$http.defaults.headers.common['Token_Autorizacao'] = dadosLogin.Token;
 
-            //     dadosLogin = LoginService.dados;
+                toastr.info('Bem-vindo ' + dadosLogin.Nome);
 
-            //     var expiraEm = new Date(new Date().getTime() + (24 * 60 * 60 * 1000));
-
-            //     $cookies.putObject('infoUsuario', dadosLogin, { expires: expiraEm });
-            //     $http.defaults.headers.common['Token_Autorizacao'] = dadosLogin.Token;
-
-            //     toastr.info('Bem-vindo ' + dadosLogin.Nome);
-
-            //     $state.go('app.inicio');
+                $state.go('app.inicio');
 
 
 
 
-            // }, function(resposta) {
-            //     vm.erro = resposta.data.Message;
-
-            // });
+            }, function (resposta) {
+                vm.erro = resposta.data.Message;
+            });
         };
 
     }
