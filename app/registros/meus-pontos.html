@@ -1,0 +1,63 @@
+<div class="bg-system-light lter b-b wrapper-md ng-scope">
+    <h1 class="m-n font-thin h3">Meus Pontos</h1>
+    <small class="text-muted">Registro <i class="fa fa-angle-right"></i> Meus Pontos</small>
+</div>
+<div class="row">
+    <div class="wrapper-md">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading font-bold"><i class="fa fa-search" aria-hidden="true"></i> Filtros
+                </div>
+                <div class="panel-body">
+                    <form method="get" name="meusPontos">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Data Inicio</label>
+                                        <input ng-model="vm.filtros.DataInicial" atg-datepicker="" max-date="vm.filtros.DataFinal" name="DataInicial" type="text"
+                                            class="form-control input-sm " placeholder="__/__/____">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Data Fim</label>
+                                        <input ng-model="vm.filtros.DataFinal" atg-datepicker="" min-date="vm.filtros.DataInicial" name="DataFinal" type="text" class="form-control input-sm "
+                                            placeholder="__/__/____">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="line line-dashed b-b line-lg pull-in "></div>
+                        <div class="row ">
+                            <div class="col-md-12">
+                                <button type="submit" class="btn-sm btn btn-primary " ng-disabled="meusPontos.$invalid"><i class="fa fa-search"></i> Buscar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading font-bold"><i class="fa fa-info" aria-hidden="true"></i> Resultados
+                </div>
+                <div class="panel-body">
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Resultado</label>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-sm text-center box-index ">
+        </div>
+    </div>

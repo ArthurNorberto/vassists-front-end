@@ -1,0 +1,30 @@
+[
+  {
+    "CodigoArquivo": 1,
+    "NomeArquivo": "Faturamento",
+    "TipoArquivo": ".zip",
+    "NomeAnexo": "Faturei_muito.zip",
+    "DataPublicacao": "10/10/2010"
+  },
+  {
+    "CodigoArquivo": 2,
+    "NomeArquivo": "Gravação",
+    "TipoArquivo": ".wav",
+    "NomeAnexo": "Gritei_muito.zip",
+    "DataPublicacao": "10/10/2010"
+  },
+  {
+    "CodigoArquivo": 3,
+    "NomeArquivo": "Fotografia",
+    "TipoArquivo": ".jpeg",
+    "NomeAnexo": "Fotografei_muito.zip",
+    "DataPublicacao": "10/10/2010"
+  },
+  {
+    "CodigoArquivo": 4,
+    "NomeArquivo": "Tabelas de Excel",
+    "TipoArquivo": ".xls",
+    "NomeAnexo": "Trabalhei_muito.zip",
+    "DataPublicacao": "10/10/2010"
+  }
+]

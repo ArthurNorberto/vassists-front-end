@@ -1,0 +1,28 @@
+<div class="bg-system-light lter b-b wrapper-md ng-scope">
+    <h1 class="m-n font-thin h3">Cadastrar Itens</h1>
+    <small class="text-muted">Administração <i class="fa fa-angle-right"></i> Cadastrar Itens</small>
+</div>
+<div class="row">
+    <div class="wrapper-md">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading font-bold"><i class="fa fa-plus" aria-hidden="true"></i> Cadastro
+                </div>
+                <div class="panel-body">
+                    <uib-tabset active="vm.active">
+                        <uib-tab>
+                            <uib-tab-heading>Perfil</uib-tab-heading>
+                            <div ng-include="'app/administracao/cadastrar-perfil.html'"></div>
+                        </uib-tab>
+                        <uib-tab disable="vm.desabilitado">
+                            <uib-tab-heading>Tipo de Problemas</uib-tab-heading>
+                            <div ng-include="'app/administracao/cadastrar-problemas.html'"></div>
+                        </uib-tab>
+                    </uib-tabset>
+                </div>
+            </div>
+        </div>
+        <div class="row row-sm text-center box-index">
+        </div>
+    </div>
+</div>

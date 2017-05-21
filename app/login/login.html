@@ -1,0 +1,25 @@
+<div class="login container w-xxl w-auto-xs">
+    <img src="img/logo.png" />
+    <div class="m-b-lg">
+        <div class="wrapper text-center">
+            <strong>Informe seu login e senha para entrar:</strong>
+        </div>
+        <form id="IdFormLogin" name="form" class="form-validation" ng-submit="vm.autenticar()">
+            <div class="text-danger wrapper text-center" ng-show="vm.erro">
+                {{vm.erro}}
+            </div>
+            <div class="list-group list-group-sm">
+                <div class="list-group-item">
+                    <input name="IdCampoLogin" type="text" placeholder="Login" class="form-control no-border" ng-model="vm.dados.Login" required="">
+                </div>
+                <div class="list-group-item">
+                    <input name="IdCampoSenha" type="password" placeholder="Senha" class="form-control no-border" ng-model="vm.dados.Senha" required="">
+                </div>
+
+            </div>
+
+            <button id="IdBotaoEntrar" type="submit" class="btn btn-lg btn-primary btn-block" ng-disabled="form.$invalid">Entrar</button>
+            <div class="text-center m-t m-b"><a id="IdLinkCadastro" ui-sref="cadastro">Novo? Cadastre!</a></div>
+        </form>
+    </div>
+</div>

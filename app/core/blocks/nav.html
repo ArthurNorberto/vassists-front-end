@@ -1,0 +1,105 @@
+<!-- list -->
+<div ng-controller="NavController as navCtrl">
+    <ul class="nav">
+        <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+        </li>
+        <li ui-sref-active="active">
+            <a class="auto" ui-sref="app.inicio">
+                <i class="fa fa-home"></i>
+                <span class="font-bold">Início</span>
+            </a>
+        </li>
+        <li ui-sref-active="active">
+            <a class="auto">
+                <span class="pull-right text-muted">
+                    <i class="fa fa-fw fa-angle-right text"></i>
+                    <i class="fa fa-fw fa-angle-down text-active"></i>
+                </span>
+                <i class="fa fa-lock"></i>
+                <span class="font-bold">Administração</span>
+            </a>
+            <ul class="nav nav-sub dk">
+                <li class="nav-sub-header">
+                    <a href>
+                        <span>Administração</span>
+                    </a>
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="app.administracao-relatorio">
+                        <span>Relatórios</span>
+                    </a>
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="app.administracao-cadastrar-usuario">
+                        <span>Cadastro de Usuários</span>
+                    </a>
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="app.administracao-gerenciar-usuario">
+                        <span>Gerenciar Usuários</span>
+                    </a>
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="app.administracao-cadastrar-itens">
+                        <span>Cadastrar Itens</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li ui-sref-active="active">
+            <a class="auto">
+                <span class="pull-right text-muted">
+                    <i class="fa fa-fw fa-angle-right text"></i>
+                    <i class="fa fa-fw fa-angle-down text-active"></i>
+                </span>
+                <i class="fa fa-cog"></i>
+                <span class="font-bold">Painel</span>
+            </a>
+            <ul class="nav nav-sub dk">
+                <li class="nav-sub-header">
+                    <a href>
+                        <span>Painel</span>
+                    </a>
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="app.meus-dados">
+                        <span>Meus Dados</span>
+                    </a>
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="app.alterar-senha">
+                        <span>Alterar Senha</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li ui-sref-active="active">
+            <a class="auto">
+                <span class="pull-right text-muted">
+                    <i class="fa fa-fw fa-angle-right text"></i>
+                    <i class="fa fa-fw fa-angle-down text-active"></i>
+                </span>
+                <i class="fa fa-map-marker"></i>
+                <span class="font-bold">Registros</span>
+            </a>
+            <ul class="nav nav-sub dk">
+                <li class="nav-sub-header">
+                    <a href>
+                        <span>Registros</span>
+                    </a>
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="app.cadastrar-pontos">
+                        <span>Cadastrar Pontos</span>
+                    </a>
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="app.meus-pontos">
+                        <span>Meus Pontos</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<!-- / list -->

@@ -1,0 +1,218 @@
+/* Progress bar */
+.progress {
+  position: relative;
+}
+
+.progress span {
+    position: absolute;
+    display: block;
+    width: 100%;
+    font-weight: bold;
+}
+
+.progress-bar-danger {
+  color: #5e0808;
+}
+.progress-bar-warning {
+  color: #625104;
+}
+.progress-bar-success {
+  color: #115521;
+}
+
+i.v-align {
+    vertical-align: middle;
+}
+
+hr {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.tab-content>.tab-pane.active  {
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-left-color: rgb(222, 229, 231);
+
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-right-color: rgb(222, 229, 231);
+
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: rgb(222, 229, 231);
+}
+
+.panel.margin-bottom-none {
+    margin-bottom: 0px;
+}
+
+.bg-system {
+  background-color: #1c4c6f;
+  color: #FFF;
+}
+.bg-system-light {
+  background-color: #5b8f3f;
+  color: #FFF;
+}
+.bg-system-light .text-muted {
+  color: #FFF;
+}
+
+.bg-system-gray {
+  background-color: gray;
+  color: #FFF;
+}
+.bg-system-gray .text-muted {
+  color: #FFF;
+}
+.bg-system-orange {
+  background-color: #FF6600;
+  color: #FFF;
+}
+.bg-system-orange .text-muted {
+  color: #FFF;
+}
+
+body {
+  color: #000000;
+}
+.panel-default {
+  border-color: #daddde;
+  border-radius: 5px;
+  border-bottom: 1px solid #c2c7c9;
+  box-shadow: 0px 2px 2px rgba(0,0,0,0.1);
+}
+.panel-heading {
+  background-color: #FFF !important;
+  color: #B8312F !important;
+  font-size: 18px;
+  border-radius: 5px 5px 0px 0px !important;
+}
+.table-hover>tbody>tr:hover {
+  background-color: #fdffe1 !important;
+}
+
+
+.btn-primary {
+    color: #ffffff !important;
+    background-color: #1c4c6f;
+    border-color: #1c4c6f ;
+}
+.btn-primary:hover {
+    color: #ffffff !important;
+    background-color: #3b55eb;
+    border-color: #3b55eb ;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+    color: #ffffff !important;
+    background-color: #0c65c3;
+    border-color: #0c65c3;
+}
+.btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus, .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover {
+    background-color: #0c65c3;
+    border-color: #0c65c3;
+}
+
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: #1c4c6f;
+    border-color: #1c4c6f;
+}
+.pagination>li>a, .pagination>li>span {
+    color: #1c4c6f;
+}
+.panel .form-control:focus {
+    border-color: #1c4c6f;
+    box-shadow: 0px 2px 2px rgba(0,0,0,0.1);
+}
+.panel .form-control {
+    box-shadow: 0px 1px 1px rgba(0,0,0,0.1);
+}
+
+.table  thead th {
+  text-align: left !important;
+}
+
+
+.app-aside {
+  height: 100% !important;
+  position: fixed;
+  box-shadow: 3px 0px 5px -2px rgba(0,0,0,0.4);  
+}
+
+.app-footer {
+  box-shadow: inset  3px 0px 5px -2px rgba(0,0,0,0.4);  
+
+}
+
+.login  img {
+  width: 300px;
+  margin: 60px 0px 0px 15px;
+}
+
+
+
+
+.app-aside-folded .navbar-brand {
+  display: none !important;
+}
+
+.navbar-brand img {
+  width: 150px;
+  margin: 0px 15px 0px 15px;
+}
+
+
+.navbar-brand  {
+  height: 135px;
+  width: 200px;
+  position: absolute;
+  background-color: #FFF;
+}
+.app-aside {
+  padding: 80px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+}
+
+
+.auto {
+  color: #1c4c6f !important;
+}
+
+.navbar-brand img {
+  margin: 10px 0px 0px 0px !important;
+  float: left;
+}
+
+
+.box-dashboar>.text-info, .box-dashboar>.text-xs{
+  color: #FFF;
+
+}
+
+
+
+.box-novas .panel, .box-aprovadas .panel, .box-analise .panel, .box-rejeitadas .panel {
+  border-radius: 4px;
+  box-shadow: inset 0px -9px 0px -5px rgba(0,0,0,0.1);
+}
+
+
+
+.box-novas .panel {
+  background-color: #2C82C9;
+}
+.box-aprovadas .panel {
+  background-color: #41A85F;
+}
+.box-analise .panel {
+  background-color: #FBA026;
+}
+.box-rejeitadas .panel {
+  background-color: #B8312F;
+}
+.box-enviadas .panel {
+  background-color: #730073;
+}
