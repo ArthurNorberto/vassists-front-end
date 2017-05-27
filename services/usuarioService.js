@@ -12,7 +12,8 @@
             data: '',
             recuperarUsuario: recuperarUsuario,
             listarPerfil: listarPerfil,
-            cadastro: cadastro
+            cadastro: cadastro,
+            listarPerfilSemAdm: listarPerfilSemAdm
         };
 
         return service;
@@ -26,9 +27,17 @@
                 });
         };
 
-        function recuperarUsuario() {
+        function listarPerfilSemAdm() {
             return $http
-                .get('api/usuario.json')
+                .get(url + '/api/perfil-sem')
+                .then(function (resposta) {
+                    service.listaPerfil = resposta.data;
+                });
+        };
+
+        function recuperarUsuario(codigo) {
+            return $http
+                .get(url + 'api/usuario/' + codigo)
                 .then(function (resposta) {
                     service.usuario = resposta.data;
                 });

@@ -45,13 +45,13 @@
                 toastr.warning("Sua sessão expirou! Por favor, logue-se novamente");
                 return $q.reject(response);
             } else if (response.status == 500) {
-                toastr.error(response.data.Message);
+                toastr.error(response.data);
                 return $q.reject(response);
             } else if (response.status == 404) {
                 toastr.warning("Rota não encontrada.");
                 return $q.reject(response);
             } else if (response.status == 400) {
-                toastr.info(response.data.Message);
+                toastr.info(response.data);
                 return $q.reject(response);
             } else if (response.status == 403) {
                 $injector.get('$state').go("app.forbidden");
