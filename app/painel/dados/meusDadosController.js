@@ -4,16 +4,15 @@
 
     function MeusDadosController($state, $cookies, UsuarioService) {
         var vm = this;
+        var infoUsuario = $cookies.getObject('infoUsuario');
 
         vm.dados = {};
-        vm.listaPerfil = {};
 
         vm.alterarSenha = alterarSenha;
         vm.limpar = limpar;
+        vm.alterarUsuario = alterarUsuario;
 
         recuperarUsuario();
-        recuperarPerfil();
-
 
         function alterarSenha() {
 
@@ -23,7 +22,7 @@
 
         function recuperarUsuario() {
 
-            UsuarioService.recuperarUsuario().then(function () {
+            UsuarioService.recuperarUsuario(infoUsuario.Codigo).then(function () {
 
                 vm.dados = UsuarioService.usuario;
 
@@ -33,21 +32,21 @@
         };
 
 
-        function recuperarPerfil() {
+        function limpar() {
 
-            UsuarioService.listarPerfil().then(function () {
+            recuperarUsuario();
 
-                vm.listaPerfil = UsuarioService.listaPerfil;
+        };
+
+        function alterarUsuario() {
+
+            UsuarioService.recuperarUsuario(infoUsuario.Codigo, vm.dados).then(function () {
+
+
 
             }, function (resposta) {
 
             });
-
-        };
-
-        function limpar() {
-
-            recuperarUsuario();
 
         };
 

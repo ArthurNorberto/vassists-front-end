@@ -2,7 +2,7 @@
 
 (function () {
 
-    function CadastroController($state, $cookies, $http, UsuarioService) {
+    function CadastroController($state, $cookies, $http, UsuarioService, MensagemService) {
         var vm = this;
 
         vm.dados = {};
@@ -22,7 +22,7 @@
 
         function recuperarPerfil() {
 
-            UsuarioService.listarPerfil().then(function () {
+            UsuarioService.listarPerfilSemAdm().then(function () {
 
                 vm.listaPerfil = UsuarioService.listaPerfil;
 
@@ -37,6 +37,9 @@
             UsuarioService.cadastro(vm.dados).then(function () {
 
                 toastr.success("Cadastrado com sucesso");
+
+                MensagemService.sucesso("Sucesso!", "Cadastro com sucesso. Favor usar a senha 123456.");
+
                 $state.go("login");
 
             }, function (resposta) {
