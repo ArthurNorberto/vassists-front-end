@@ -114,6 +114,12 @@
                     controller: 'GerenciarUsuarioController',
                     controllerAs: 'vm'
                 })
+                .state('app.administracao-alterar-usuario', {
+                    url: '/administracao/alterar-usuario/:parametro',
+                    templateUrl: 'app/administracao/alterar-usuario.html',
+                    controller: 'AlterarUsuarioController',
+                    controllerAs: 'vm'
+                })
                 .state('app.administracao-cadastrar-itens', {
                     url: '/administracao/cadastrar-itens',
                     templateUrl: 'app/administracao/cadastrar-itens.html',

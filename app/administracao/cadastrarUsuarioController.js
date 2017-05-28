@@ -2,7 +2,7 @@
 
 (function () {
 
-    function CadastrarUsuarioController($state, $cookies, UsuarioService) {
+    function CadastrarUsuarioController($state, $cookies, UsuarioService, PainelService) {
         var vm = this;
 
         vm.listaPerfil = [];
@@ -19,9 +19,9 @@
 
         function recuperarPerfil() {
 
-            UsuarioService.listarPerfil().then(function () {
+            PainelService.listarPerfil().then(function () {
 
-                vm.listaPerfil = UsuarioService.listaPerfil;
+                vm.listaPerfil = PainelService.listaPerfil;
 
             }, function (resposta) {
 
@@ -36,6 +36,19 @@
                 Email: '',
                 CodigoPerfil: ''
             };
+
+        };
+
+        function cadastrarUsuario() {
+
+            UsuarioService.cadastro(vm.dados).then(function () {
+
+                toastr.success("Usuário Cadastrado com sucesso!");
+                limpar();
+
+            }, function (resposta) {
+
+            });
 
         };
     }

@@ -2,7 +2,7 @@
 
 (function () {
 
-    function MeusDadosController($state, $cookies, UsuarioService) {
+    function MeusDadosController($state, $cookies, UsuarioService, PainelService) {
         var vm = this;
         var infoUsuario = $cookies.getObject('infoUsuario');
 
@@ -40,13 +40,26 @@
 
         function alterarUsuario() {
 
-            UsuarioService.recuperarUsuario(infoUsuario.Codigo, vm.dados).then(function () {
+            MensagemService.aviso(function (isConfirm) {
+                //Duas opções vão aparecer: Sim e Não
+                if (isConfirm) {
+                    //Aqui o usuário clicou em "Sim"
+
+                    UsuarioService.alterarUsuario(infoUsuario.Codigo, vm.dados).then(function () {
+
+                        toastr.success("Usuário alterado com sucesso");
 
 
+                    }, function (resposta) {
 
-            }, function (resposta) {
+                    });
 
+
+                } else {
+                    //Aqui o usuário clicou em "Não"
+                }
             });
+
 
         };
 

@@ -9,21 +9,27 @@
                 <div class="panel-heading font-bold"><i class="fa fa-search" aria-hidden="true"></i> Filtro
                 </div>
                 <div class="panel-body">
-                    <form method="get" name="alterarDadosForm">
+                    <form method="get" name="buscarUsuariosForm" ng-submit="vm.buscarUsuarios()">
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Nome do Usuário</label>
-                                        <input type="text" class="form-control input-sm" required ng-model="vm.filtro.Nome">
+                                        <input type="text" class="form-control input-sm" ng-model="vm.filtros.Nome" placeholder="Exemplo: fulano">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input type="text" class="form-control input-sm" ng-model="vm.filtros.Email" placeholder="Exemplo: @hot">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Perfil</label>
-                                        <select name="perfilSelect" class="form-control input-sm" required ng-options="Perfil.Codigo as Perfil.Descricao for Perfil in vm.listaPerfil"
-                                            ng-model="vm.filtro.CodigoPerfil">
-									<option value="">Selecione um Perfil</option></select>
+                                        <select name="perfilSelect" class="form-control input-sm" ng-options="Perfil.Codigo as Perfil.Descricao for Perfil in vm.listaPerfil"
+                                            ng-model="vm.filtros.CodigoPerfil">
+									<option value="">Todos</option></select>
                                     </div>
                                 </div>
                             </div>
@@ -36,6 +42,50 @@
                             </div>
                         </div>
                     </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading font-bold"><i class="fa fa-info-circle"></i> Resultados</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <pre ng-show="vm.erro" class="alert alert-info">{{vm.erro}}</pre>
+                            <pre ng-show="vm.mensagem" class="alert alert-success">{{vm.mensagem}}</pre>
+                            <button type="button" ng-click="vm.novoUsuario();" class="btn-sm btn btn-primary m-b"><i class="fa fa-plus-circle"></i> Novo</button>
+                            <div class="table-responsive">
+                                <table ng-table="vm.tabelaExemplo" class="table table-bordered table-hover table-nowrap b-t b-light" template-pagination="componentes/ng-table/template.html">
+                                    <tr ng-show="!vm.carregandoGrid && $data.length != 0" ng-repeat="registro in $data">
+                                        <td data-title="'Ações'" width="75px" class="text-center">
+                                            <div uib-dropdown="" class="btn-group dropdown">
+                                                <button uib-dropdown-toggle="" class="btn btn-xs btn-primary">
+                                                <i class="fa fa-cog"></i> <span class="caret"></span>
+                                            </button>
+                                                <ul class="dropdown-menu" uib-dropdown-menu>
+                                                    <li><a ng-click="vm.editar(registro);">Editar</a></li>
+                                                    <li><a ng-click="vm.excluir(registro);">Excluir</a></li>
+                                                    <li><a ng-click="vm.resetar(registro);">Resetar Senha</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                        <td data-title="'Nome'">{{registro.Nome}}</td>
+                                        <td data-title="'Email'" class="text-center">{{registro.Email}}</td>
+                                        <td data-title="'Perfil'">{{registro.Perfil}}</td>
+                                        <td data-title="'Último Acesso'">{{registro.DataUltimoLogin | date:'dd/MM/yyyy H:mm:ss'}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="5" class="text-center" ng-show="$data.length == 0 && !vm.carregandoGrid">Nenhum registro encontrado.</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="5" class="text-center" ng-show="vm.carregandoGrid">
+                                            <i class="fa fa-spinner fa-spin"></i>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

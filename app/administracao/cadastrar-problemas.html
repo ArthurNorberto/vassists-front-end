@@ -1,30 +1,109 @@
 <div class="row">
     <div class="col-md-12 m-b m-t m-l">
-        <form name="cadastroTipoAcesso" ng-submit="vm.cadastrar()">
-            <pre ng-show="vm.erro" class="alert alert-info">{{vm.erro}}</pre>
 
-            <div class="row">
-                <div class="col-md-12">
-                    <h4>Tipo de Problemas:</h4>
-                    <ul>
-                        <li><b>Exemplo:</b> Buraco, Calçadas...</li>
-                    </ul>
-                </div>
+        <button type="button" uib-tooltip="Novo" class="btn-sm btn btn-primary" ng-click="vm.modoCadastro = true;">
+                                                    <i class="fa fa-plus-circle"></i> Novo
+                                                </button>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 m-b m-t m-l">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover table-nowrap b-t b-light">
+
+                <th>
+
+                    <td>Descrição Problema</td>
+                    <td>Identificação</td>
+                </th>
+
+                <tr ng-show="vm.modoCadastro">
+                    <td data-title="'Ações'" width="80px">
+                        <form class="form-validation" name="cadForm" ng-submit="vm.cadastrarProblema()">
+                            <div>
+                                <button type="submit" uib-tooltip="Salvar" ng-disabled="cadForm.$invalid" class="btn btn-xs btn-primary">
+                                                    <i class="fa fa-save"></i>
+                                                </button>
+                                <button type="button" ng-click="vm.modoCadastro = false" uib-tooltip="Cancelar" class="btn btn-xs btn-default">
+                                                    <i class="fa fa-close"></i>
+                                                </button>
+                            </div>
+
+                            <input required type="hidden" class="form-control input-sm" ng-model="vm.dadosNovo.Descricao">
+                            <input required type="hidden" class="form-control input-sm" ng-model="vm.dadosNovo.Identificacao">
+
+                        </form>
+                    </td>
+                    <td>
+                        <form class="form-validation">
+                            <input type="text" class="form-control input-sm" required ng-model="vm.dadosNovo.Descricao" placeholder="Exemplo: Problema">
+                        </form>
+                    </td>
+                    <td data-title="'Nome'" sortable="'nome'">
+                        <form class="form-validation">
+                            <input type="text" class="form-control input-sm" required ng-model="vm.dadosNovo.Identificacao" placeholder="Exemplo: A">
+                        </form>
+                    </td>
+
+                </tr>
+                <tr ng-show="vm.listaProblema.length != 0" ng-repeat="registro in vm.listaProblema" ng-class="{'active' : vm.registroSelecionado == registro}"
+                    ng-click="vm.selecionarRegistro(registro)">
+                    <td data-title="'Ações'" width="80px" class="text-center">
+                        <div ng-if="!registro.editMode" uib-dropdown="" class="btn-group dropdown">
+                            <button uib-dropdown-toggle="" class="btn btn-xs btn-primary">
+                                                <i class="fa fa-cog"></i> <span class="caret"></span>
+                                            </button>
+                            <ul class="dropdown-menu" uib-dropdown-menu>
+                                <li><a ng-click="registro.editMode = true" ng-show="!registro.editMode">Editar</a></li>
+                                <li class="divider"></li>
+                                <li><a ng-click="vm.excluirProblema(registro)">Excluir</a></li>
+                            </ul>
+                        </div>
+                        <div ng-if="registro.editMode">
+                            <form class="form-validation" name="editForm{{registro.Codigo}}" ng-submit="registro.editMode = false; vm.editarProblema(registro);">
+                                <button type="submit" ng-disabled="editForm{{registro.Codigo}}.$invalid" uib-tooltip="Salvar" class="btn btn-xs btn-primary">
+                                                    <i class="fa fa-save"></i>
+                                                </button>
+                                <button type="button" ng-click="registro.editMode = false; vm.recuperarProblema()" uib-tooltip="Cancelar" class="btn btn-xs btn-default">
+                                                    <i class="fa fa-close"></i>
+                                                </button>
+
+                                <input required type="hidden" class="form-control input-sm" ng-model="registro.Codigo">
+                                <input required type="hidden" class="form-control input-sm" ng-model="registro.Descricao">
+                                <input required type="hidden" class="form-control input-sm" ng-model="registro.Identificacao">
+
+                            </form>
+                        </div>
+                    </td>
+
+                    <td data-title="'Descrição'" ng-if="!registro.editMode ">{{registro.Descricao}}</td>
+                    <td data-title="'Descrição'" ng-if="registro.editMode ">
+                        <form class="form-validation">
+                            <input type="text" class="form-control input-sm" required ng-model="registro.Descricao" placeholder="Exemplo: Tester">
+
+                        </form>
+                    </td>
+                    <td data-title="'Identificação'" ng-if="!registro.editMode ">{{registro.Identificacao}}</td>
+                    <td data-title="'Identificação'" ng-if="registro.editMode ">
+                        <form class="form-validation">
+                            <input type="text" class="form-control input-sm" required ng-model="registro.Identificacao" placeholder="Exemplo: A">
+                        </form>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td colspan="10" class="text-center" ng-show="vm.listaProblema.length == 0">Nenhum registro encontrado.</td>
+                </tr>
+
+            </table>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <button type="button" class="btn-sm btn btn-default" ng-click="vm.voltar();"><i class="fa fa-arrow-left"></i> Voltar</button>
             </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label>Problema</label>
-                        <input type="text" class="form-control input-sm" required ng-model="vm.dados.NomeAcesso" placeholder="Exemplo: Tester">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <button type="submit" class="btn-sm btn btn-primary" ng-disabled="cadastroTipoAcesso.$invalid"><i class="fa fa-save"></i> Salvar</button>
-                    <button type="button" class="btn-sm btn btn-default" ng-click="vm.voltar();"><i class="fa fa-arrow-left"></i> Voltar</button>
-                </div>
-            </div>
-        </form>
+        </div>
     </div>
 </div>

@@ -2,7 +2,7 @@
 
 (function () {
 
-    function CadastroController($state, $cookies, $http, UsuarioService, MensagemService) {
+    function CadastroController($state, $cookies, $http, LoginService, UsuarioService, MensagemService, PainelService) {
         var vm = this;
 
         vm.dados = {};
@@ -22,9 +22,9 @@
 
         function recuperarPerfil() {
 
-            UsuarioService.listarPerfilSemAdm().then(function () {
+            PainelService.listarPerfilSemAdm().then(function () {
 
-                vm.listaPerfil = UsuarioService.listaPerfil;
+                vm.listaPerfil = PainelService.listaPerfil;
 
             }, function (resposta) {
 
@@ -34,7 +34,7 @@
 
         function cadastro() {
 
-            UsuarioService.cadastro(vm.dados).then(function () {
+            LoginService.cadastro(vm.dados).then(function () {
 
                 toastr.success("Cadastrado com sucesso");
 

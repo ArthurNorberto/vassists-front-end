@@ -6,6 +6,7 @@
         //Registrando os métodos e variáveis no serviço
         var service = {
             urlBase: "http://vassists.azurewebsites.net/",
+            //urlBase: "http://localhost/VAssists.WebApi/",
             urlGoogle: "https://maps.googleapis.com/maps/api/js?key=AIzaSyDyAj5uofof5uXMLSu8zeedIickSncGlf4",
             request: request,
             verificarAutenticacao: verificarAutenticacao,

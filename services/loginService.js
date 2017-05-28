@@ -10,7 +10,8 @@
             dados: '',
             usuario: {},
             autenticar: autenticar,
-            desconectar: desconectar
+            desconectar: desconectar,
+            cadastro: cadastro
         };
 
         return service;
@@ -25,7 +26,7 @@
                 .then(function (resposta) {
                     service.dados = resposta.data;
                 });
-        }
+        };
 
 
         function desconectar(token) {
@@ -37,7 +38,20 @@
                     service.dados = resposta.data;
                 });
 
-        }
+        };
+
+        function cadastro(dados) {
+            return $http
+                .post(url + '/api/seguranca/cadastro', {
+                    Nome: dados.Nome,
+                    Email: dados.Email,
+                    CodigoPerfil: dados.CodigoPerfil
+
+                })
+                .then(function (resposta) {
+                    service.data = resposta.data;
+                });
+        };
 
 
     }
