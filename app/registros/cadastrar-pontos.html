@@ -26,8 +26,8 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Problema</label>
-                                                <select name="problemaSelect" class="form-control input-sm" ng-options="Problema.Codigo as Problema.Descricao for Problema in vm.listaProblemas"
-                                                    ng-model="vm.dados.CodigoProblema">
+                                                <select name="problemaSelect" required class="form-control input-sm" ng-options="Tipo.Codigo as Tipo.Descricao for Tipo in vm.listaTipo"
+                                                    ng-model="vm.dados.CodigoTipo">
 									<option value="">Selecione um Problema</option></select>
 
                                             </div>
@@ -37,7 +37,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Descreva o Problema</label>
-                                                <textarea rows="4" required class="form-control input-sm" ng-model="vm.dados.Descricao" cols="50"></textarea>
+                                                <textarea rows="4" required class="form-control input-sm" ng-model="vm.dados.Observacao" cols="50"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -58,6 +58,8 @@
                             <div class="col-md-12 ">
                                 <button type="submit " class="btn-sm btn btn-primary " ng-disabled="cadastrarPontos.$invalid
                                             "><i class="fa fa-save "></i> Salvar</button>
+                                <button type="button" ng-click="vm.limparCampos();" class="btn-sm btn btn-default btn-addon"><i class="fa fa-undo"></i> Limpar</button>
+
                             </div>
                         </div>
                     </form>

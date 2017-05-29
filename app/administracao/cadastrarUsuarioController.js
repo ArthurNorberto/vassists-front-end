@@ -14,6 +14,7 @@
         };
 
         vm.limpar = limpar;
+        vm.cadastrarUsuario = cadastrarUsuario;
 
         recuperarPerfil();
 

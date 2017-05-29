@@ -41,17 +41,40 @@
         </div>
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading font-bold"><i class="fa fa-info" aria-hidden="true"></i> Resultados
-                </div>
+                <div class="panel-heading font-bold"><i class="fa fa-info-circle"></i> Resultados</div>
                 <div class="panel-body">
-
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Resultado</label>
-
-                                </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <pre ng-show="vm.erro" class="alert alert-info">{{vm.erro}}</pre>
+                            <pre ng-show="vm.mensagem" class="alert alert-success">{{vm.mensagem}}</pre>
+                            <button type="button" ng-click="vm.novoPonto();" class="btn-sm btn btn-primary m-b"><i class="fa fa-plus-circle"></i> Novo</button>
+                            <div class="table-responsive">
+                                <table ng-table="vm.tabelaExemplo" class="table table-bordered table-hover table-nowrap b-t b-light" template-pagination="componentes/ng-table/template.html">
+                                    <tr ng-show="!vm.carregandoGrid && $data.length != 0" ng-repeat="registro in $data">
+                                        <td data-title="'Ações'" width="75px" class="text-center">
+                                            <div uib-dropdown="" class="btn-group dropdown">
+                                                <button uib-dropdown-toggle="" class="btn btn-xs btn-primary">
+                                                <i class="fa fa-cog"></i> <span class="caret"></span>
+                                            </button>
+                                                <ul class="dropdown-menu" uib-dropdown-menu>
+                                                    <li><a ng-click="vm.visualizar(registro);">Visualizar Ponto</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                        <td data-title="'Nome'">{{registro.Nome}}</td>
+                                        <td data-title="'Email'" class="text-center">{{registro.Email}}</td>
+                                        <td data-title="'Perfil'">{{registro.Perfil}}</td>
+                                        <td data-title="'Último Acesso'">{{registro.DataUltimoLogin | date:'dd/MM/yyyy H:mm:ss'}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="5" class="text-center" ng-show="$data.length == 0 && !vm.carregandoGrid">Nenhum registro encontrado.</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="5" class="text-center" ng-show="vm.carregandoGrid">
+                                            <i class="fa fa-spinner fa-spin"></i>
+                                        </td>
+                                    </tr>
+                                </table>
                             </div>
                         </div>
                     </div>

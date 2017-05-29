@@ -8,7 +8,7 @@
         var infoUsuario = $cookies.getObject('infoUsuario');
 
         vm.listaPerfil = {};
-        vm.listaProblema = {};
+        vm.listaTipo = {};
 
         vm.dadosNovo = {
             Descricao: '',
@@ -18,9 +18,12 @@
         vm.cadastrarPerfil = cadastrarPerfil;
         vm.editarPerfil = editarPerfil;
         vm.excluirPerfil = excluirPerfil;
+        vm.cadastrarTipo = cadastrarTipo;
+        vm.editarTipo = editarTipo;
+        vm.excluirTipo = excluirTipo;
 
         recuperarPerfil();
-        recuperarProblemas();
+        recuperarTipo();
 
         function recuperarPerfil() {
 
@@ -34,11 +37,11 @@
 
         };
 
-        function recuperarProblemas() {
+        function recuperarTipo() {
 
             PainelService.listarTipos().then(function () {
 
-                vm.listaProblema = PainelService.listaTipos;
+                vm.listaTipo = PainelService.listaTipos;
 
             }, function (resposta) {
 
@@ -95,6 +98,59 @@
             });
 
         };
+
+
+        function cadastrarTipo() {
+
+            PainelService.cadastrarTipo(vm.dadosNovo).then(function () {
+
+                toastr.success('Cadastrado com sucesso');
+
+                vm.modoCadastro = false;
+                recuperarTipo();
+
+            }, function (resposta) {
+
+            });
+
+        };
+
+        function editarTipo(registro) {
+
+            PainelService.editarTipo(registro.Codigo, registro).then(function () {
+
+                toastr.success('Alterado com sucesso');
+                recuperarTipo();
+
+            }, function (resposta) {
+
+            });
+        };
+
+        function excluirTipo(registro) {
+
+
+            MensagemService.aviso(function (isConfirm) {
+                //Duas opções vão aparecer: Sim e Não
+                if (isConfirm) {
+
+                    PainelService.excluirTipo(registro.Codigo).then(function () {
+
+                        toastr.success('Excluído com sucesso');
+                        recuperarTipo();
+
+                    }, function (resposta) {
+
+                    });
+
+                } else {
+                    //Aqui o usuário clicou em "Não"
+                }
+            });
+
+        };
+
+
 
 
     }

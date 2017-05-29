@@ -2,9 +2,23 @@
 
 (function () {
 
-    function MeusPontosController($state, $cookies, NgTableParams, MensagemService) {
+    function MeusPontosController($state, $cookies, NgTableParams, MensagemService, PainelService) {
         var vm = this;
+        var infoUsuario = $cookies.getObject('infoUsuario');
 
+        recuperarProblemas();
+
+        function recuperarProblemas() {
+
+            PainelService.listarTipos().then(function () {
+
+                vm.listaProblemas = PainelService.listaTipos;
+
+            }, function (resposta) {
+
+            });
+
+        };
 
         function carregarTabela() {
             vm.tabelaExemplo = new NgTableParams({

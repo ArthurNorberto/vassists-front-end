@@ -2,7 +2,7 @@
 
 (function () {
 
-    function AlterarUsuarioController($state, $cookies, $stateParams, $http, UsuarioService, MensagemService) {
+    function AlterarUsuarioController($state, $cookies, $stateParams, $http, UsuarioService, MensagemService, PainelService) {
         var vm = this;
 
         var infoUsuario = $cookies.getObject('infoUsuario');
@@ -23,9 +23,9 @@
 
         function recuperarPerfil() {
 
-            UsuarioService.listarPerfil().then(function () {
+            PainelService.listarPerfil().then(function () {
 
-                vm.listaPerfil = UsuarioService.listaPerfil;
+                vm.listaPerfil = PainelService.listaPerfil;
 
             }, function (resposta) {
 

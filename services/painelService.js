@@ -15,7 +15,10 @@
             cadastrarPerfil: cadastrarPerfil,
             editarPerfil: editarPerfil,
             excluirPerfil: excluirPerfil,
-            listarTipos: listarTipos
+            listarTipos: listarTipos,
+            cadastrarTipo: cadastrarTipo,
+            editarTipo: editarTipo,
+            excluirTipo: excluirTipo
         };
 
         return service;
@@ -73,6 +76,36 @@
                 .get(url + '/api/tipo')
                 .then(function (resposta) {
                     service.listaTipos = resposta.data;
+                });
+        };
+
+        function cadastrarTipo(dados) {
+            return $http
+                .post(url + '/api/tipo', {
+                    Descricao: dados.Descricao,
+                    Identificacao: dados.Identificacao
+                })
+                .then(function (resposta) {
+                    service.data = resposta.data;
+                });
+        };
+
+        function editarTipo(codigo, dados) {
+            return $http
+                .put(url + '/api/tipo/' + codigo, {
+                    Descricao: dados.Descricao,
+                    Identificacao: dados.Identificacao
+                })
+                .then(function (resposta) {
+                    service.data = resposta.data;
+                });
+        };
+
+        function excluirTipo(codigo, dados) {
+            return $http
+                .delete(url + '/api/tipo/' + codigo)
+                .then(function (resposta) {
+                    service.data = resposta.data;
                 });
         };
 

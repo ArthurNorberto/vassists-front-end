@@ -2,20 +2,33 @@
 
 (function () {
 
-    function CadastrarPontosController($scope, $state, $cookies, ApiService, NgMap, NavigatorGeolocation, GeoCoder, MensagemService, PontosService) {
+    function CadastrarPontosController($scope, $state, $cookies, ApiService, NgMap, NavigatorGeolocation, GeoCoder, MensagemService, PontosService, PainelService) {
         var vm = this;
+        var infoUsuario = $cookies.getObject('infoUsuario');
         vm.googleMapsUrl = ApiService.urlGoogle;
 
-        vm.center = "-25.363882, 131.044922";
+
         vm.markers = [];
 
-        vm.listaProblemas = [];
+        vm.listaTipo = [];
+
+        vm.dados = {
+            CodigoUsuario: infoUsuario.Codigo,
+            CodigoTipo: '',
+            Observacao: '',
+            Latitude: '',
+            Longitude: '',
+            Endereco: ''
+        };
 
         vm.cadastrarPonto = cadastrarPonto;
+        vm.limparCampos = limparCampos;
 
-        vm.dados = {};
 
-        listarTipos();
+        var endereco = '';
+
+
+        recuperarTipo();
 
         //used for setting bounds of google map display
 
@@ -51,6 +64,17 @@
             var marker = createMarker(position);
             vm.markers.push(marker);
 
+
+            vm.dados.Latitude = parseFloat(vm.markers[0].getPosition().lat());
+            vm.dados.Longitude = parseFloat(vm.markers[0].getPosition().lng());
+
+            var pos = {
+                lat: vm.dados.Latitude,
+                lng: vm.dados.Longitude
+
+            };
+
+            recuperarEndereco(pos);
         };
 
         function iniciar() {
@@ -101,11 +125,30 @@
 
         function cadastrarPonto() {
 
+            if (vm.markers.length == 0) {
+
+                MensagemService.informacao("É necessário clicar no mapa e escolher um ponto para registrar!");
+
+                return;
+            }
+
             MensagemService.aviso(function (isConfirm) {
                 //Duas opções vão aparecer: Sim e Não
                 if (isConfirm) {
 
-                   
+                    vm.dados.Endereco = endereco;
+
+                    PontosService.registrarPonto(vm.dados).then(function () {
+
+                        toastr.success("Ponto Crítico registrado com sucesso!");
+                        $state.go("app.meus-pontos");
+
+                    }, function (resposta) {
+
+                    });
+
+
+
                 } else {
                     //Aqui o usuário clicou em "Não"
                 }
@@ -113,19 +156,56 @@
 
         };
 
+        function limparCampos() {
+            vm.dados = {
+                CodigoUsuario: infoUsuario.Codigo,
+                CodigoTipo: '',
+                Observacao: '',
+                Latitude: '',
+                Longitude: '',
+                Endereco: ''
+            };
+            vm.address = '';
+            clearMarkers();
+        };
 
-        function listarTipos() {
+        function recuperarTipo() {
 
-            PontosService.listarTipos().then(function () {
+            PainelService.listarTipos().then(function () {
 
-                vm.listaProblemas = PontosService.listaTipos;
+                vm.listaTipo = PainelService.listaTipos;
 
             }, function (resposta) {
-
 
             });
 
         };
+
+
+        function recuperarEndereco(position) {
+
+            var geocoder = new google.maps.Geocoder();
+            geocoder.geocode({
+                'latLng': new google.maps.LatLng(position.lat, position.lng)
+            }, function (results, status) {
+                if (status === google.maps.GeocoderStatus.OK) {
+                    if (results[0]) {
+                        // @url: https://developers.google.com/maps/documentation/javascript/geocoding#ReverseGeocoding
+                        // We return the second result, which is less specific than the first
+                        //  (in this case, a neighborhood name)
+                        endereco = results[0].formatted_address;
+                    } else {
+                        alert('No results found');
+                    }
+                } else {
+                    alert('Geocoder failed due to: ' + status);
+                }
+            });
+
+
+
+        };
+
 
 
 

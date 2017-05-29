@@ -21,7 +21,7 @@
 
                 <tr ng-show="vm.modoCadastro">
                     <td data-title="'Ações'" width="80px">
-                        <form class="form-validation" name="cadForm" ng-submit="vm.cadastrarProblema()">
+                        <form class="form-validation" name="cadForm" ng-submit="vm.cadastrarTipo()">
                             <div>
                                 <button type="submit" uib-tooltip="Salvar" ng-disabled="cadForm.$invalid" class="btn btn-xs btn-primary">
                                                     <i class="fa fa-save"></i>
@@ -48,7 +48,7 @@
                     </td>
 
                 </tr>
-                <tr ng-show="vm.listaProblema.length != 0" ng-repeat="registro in vm.listaProblema" ng-class="{'active' : vm.registroSelecionado == registro}"
+                <tr ng-show="vm.listaTipo.length != 0" ng-repeat="registro in vm.listaTipo" ng-class="{'active' : vm.registroSelecionado == registro}"
                     ng-click="vm.selecionarRegistro(registro)">
                     <td data-title="'Ações'" width="80px" class="text-center">
                         <div ng-if="!registro.editMode" uib-dropdown="" class="btn-group dropdown">
@@ -58,15 +58,15 @@
                             <ul class="dropdown-menu" uib-dropdown-menu>
                                 <li><a ng-click="registro.editMode = true" ng-show="!registro.editMode">Editar</a></li>
                                 <li class="divider"></li>
-                                <li><a ng-click="vm.excluirProblema(registro)">Excluir</a></li>
+                                <li><a ng-click="vm.excluirTipo(registro)">Excluir</a></li>
                             </ul>
                         </div>
                         <div ng-if="registro.editMode">
-                            <form class="form-validation" name="editForm{{registro.Codigo}}" ng-submit="registro.editMode = false; vm.editarProblema(registro);">
+                            <form class="form-validation" name="editForm{{registro.Codigo}}" ng-submit="registro.editMode = false; vm.editarTipo(registro);">
                                 <button type="submit" ng-disabled="editForm{{registro.Codigo}}.$invalid" uib-tooltip="Salvar" class="btn btn-xs btn-primary">
                                                     <i class="fa fa-save"></i>
                                                 </button>
-                                <button type="button" ng-click="registro.editMode = false; vm.recuperarProblema()" uib-tooltip="Cancelar" class="btn btn-xs btn-default">
+                                <button type="button" ng-click="registro.editMode = false; vm.recuperarTipo()" uib-tooltip="Cancelar" class="btn btn-xs btn-default">
                                                     <i class="fa fa-close"></i>
                                                 </button>
 
@@ -94,7 +94,7 @@
 
                 </tr>
                 <tr>
-                    <td colspan="10" class="text-center" ng-show="vm.listaProblema.length == 0">Nenhum registro encontrado.</td>
+                    <td colspan="10" class="text-center" ng-show="vm.listaTipo.length == 0">Nenhum registro encontrado.</td>
                 </tr>
 
             </table>
