@@ -9,9 +9,11 @@
         var service = {
             listaMensagens: '',
             data: '',
+            listaMensagem: '',
             listarMensagens: listarMensagens,
             excluirMensagem: excluirMensagem,
-            inserirMensagem: inserirMensagem
+            inserirMensagem: inserirMensagem,
+            listaUltimasMensagens: listaUltimasMensagens
 
         };
 
@@ -28,6 +30,14 @@
                 })
                 .then(function (resposta) {
                     service.listaMensagens = resposta.data;
+                });
+        };
+
+        function listaUltimasMensagens() {
+            return $http
+                .get(url + '/api/mensagem/ultimas')
+                .then(function (resposta) {
+                    service.listaMensagem = resposta.data;
                 });
         };
 

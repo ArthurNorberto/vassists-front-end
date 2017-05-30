@@ -7,29 +7,30 @@
 
         //Registrando os métodos e variáveis no serviço
         var service = {
-            listaGrafico: '',
+            listaGraficoUsuarios: '',
+            listaGraficoPontos: '',
             data: '',
+            retornarGraficoUsuarios: retornarGraficoUsuarios,
+            retornarGraficoPontos: retornarGraficoPontos
 
         };
 
         return service;
 
         //Declaração de funções
-        function listaGrafico(filtro) {
+        function retornarGraficoUsuarios() {
             return $http
-                .get(url + '/api/ponto', {
-                    params: {
-                        qt: filtro.qt,
-                        pg: filtro.pg,
-                        CodigoTipo: filtro.CodigoTipo,
-                        NomeUsuario: filtro.NomeUsuario,
-                        DataInicial: filtro.DataInicial,
-                        DataFinal: filtro.DataFinal,
-                        Endereco: filtro.Endereco
-                    }
-                })
+                .get(url + '/api/estatistica/usuario')
                 .then(function (resposta) {
-                    service.data = resposta.data;
+                    service.listaGraficoUsuarios = resposta.data;
+                });
+        };
+
+        function retornarGraficoPontos() {
+            return $http
+                .get(url + '/api/estatistica/ponto')
+                .then(function (resposta) {
+                    service.listaGraficoPontos = resposta.data;
                 });
         };
 

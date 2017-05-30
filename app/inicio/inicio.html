@@ -24,7 +24,44 @@
                                 <span class="col-sm-12"><i class="fa fa-check-square-o fa-2x"></i> Alterar informações de Login
 					</span>
                             </div>
+                            <div class="row m-t m-l e m-r">
+                                <span class="col-sm-12"><i class="fa fa-check-square-o fa-2x"></i> Visualizar estatísticas
+					</span>
+                            </div>
                         </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading font-bold"><i class="fa fa-bullhorn" aria-hidden="true"></i> Mensagens
+                </div>
+                <div class="panel-body">
+                    <form method="get" name="alterarDadosForm" ng-submit="vm.inserirResposta()">
+                        <div class="form-group">
+                            <div ng-repeat="mensagem in vm.listaMensagem">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>{{mensagem.NomeUsuario}} - {{mensagem.Data | date:'dd/MM/yyyy H:mm:ss'}}</label>
+                                            <textarea class="form-control input-sm" disabled="true" ng-model="mensagem.Texto"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-show="vm.listaMensagem.length == 0">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Não existem Mensagens.</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
                     </form>
                 </div>
             </div>
