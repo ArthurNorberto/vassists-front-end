@@ -79,13 +79,14 @@
                                         <td data-title="'Data Cadastrado'">{{registro.DataCadastrado | date:'dd/MM/yyyy H:mm:ss'}}</td>
                                         <td data-title="'Endereco'" class="text-center">{{registro.EnderecoCompleto}}</td>
                                         <td data-title="'Tipo'">{{registro.Tipo}}</td>
+                                        <td data-title="'País'">{{registro.Pais}}</td>
 
                                     </tr>
                                     <tr>
-                                        <td colspan="4" class="text-center" ng-show="$data.length == 0 && !vm.carregandoGrid">Nenhum registro encontrado.</td>
+                                        <td colspan="5" class="text-center" ng-show="$data.length == 0 && !vm.carregandoGrid">Nenhum registro encontrado.</td>
                                     </tr>
                                     <tr>
-                                        <td colspan="4" class="text-center" ng-show="vm.carregandoGrid">
+                                        <td colspan="5" class="text-center" ng-show="vm.carregandoGrid">
                                             <i class="fa fa-spinner fa-spin"></i>
                                         </td>
                                     </tr>

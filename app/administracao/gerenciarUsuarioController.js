@@ -22,6 +22,7 @@
         vm.editar = editar;
         vm.novoUsuario = novoUsuario;
         vm.resetar = resetar;
+        vm.exportarExcel = exportarExcel;
 
         recuperarPerfil();
         carregarTabela();
@@ -144,6 +145,10 @@
             $state.go('app.administracao-alterar-usuario', {
                 parametro: registro.CodigoUsuario
             });
+
+        };
+
+        function exportarExcel(registro) {
 
         };
 

@@ -1,0 +1,82 @@
+<div class="bg-system-light lter b-b wrapper-md ng-scope">
+    <h1 class="m-n font-thin h3">Mensagem</h1>
+    <small class="text-muted">Administração <i class="fa fa-angle-right"></i> Mensagem</small>
+</div>
+<div class="row">
+    <div class="wrapper-md">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading font-bold"><i class="fa fa-plus" aria-hidden="true"></i> Cadastrar Mensagens
+                </div>
+                <div class="panel-body">
+                    <form method="get" name="alterarDadosForm" ng-submit="vm.inserirMensagem();">
+                        <div class="form-group">
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Mensagem</label>
+                                        <textarea class="form-control input-sm" required ng-model="vm.dadosIncluir.Texto"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="line line-dashed b-b line-lg pull-in"></div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button type="submit" class="btn-sm btn btn-primary" ng-disabled="alterarDadosForm.$invalid"><i class="fa fa-save"></i> Salvar</button>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading font-bold"><i class="fa fa-info-circle"></i> Mensagens</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <pre ng-show="vm.erro" class="alert alert-info">{{vm.erro}}</pre>
+                            <pre ng-show="vm.mensagem" class="alert alert-success">{{vm.mensagem}}</pre>
+                            <div class="table-responsive">
+                                <table ng-table="vm.tabelaExemplo" class="table table-bordered table-hover table-nowrap b-t b-light" template-pagination="componentes/ng-table/template.html">
+                                    <tr ng-show="!vm.carregandoGrid && $data.length != 0" ng-repeat="registro in $data">
+                                        <td data-title="'Ações'" width="75px" class="text-center">
+                                            <div uib-dropdown="" class="btn-group dropdown">
+                                                <button uib-dropdown-toggle="" class="btn btn-xs btn-primary">
+                                                <i class="fa fa-cog"></i> <span class="caret"></span>
+                                            </button>
+                                                <ul class="dropdown-menu" uib-dropdown-menu>
+                                                    <li><a ng-click="vm.excluirMensagem(registro.Codigo);">Excluir</a></li>
+
+                                                </ul>
+                                            </div>
+                                        </td>
+                                        <td data-title="'Nome Usuário'">{{registro.NomeUsuario}}</td>
+                                        <td data-title="'Data Cadastrado'" class="text-center">{{registro.Data | date:'dd/MM/yyyy H:mm:ss'}}</td>
+                                        <td data-title="'Texto'">{{registro.Texto}}</td>
+                              
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4" class="text-center" ng-show="$data.length == 0 && !vm.carregandoGrid">Nenhum registro encontrado.</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4" class="text-center" ng-show="vm.carregandoGrid">
+                                            <i class="fa fa-spinner fa-spin"></i>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-sm text-center box-index">
+        </div>
+    </div>
+</div>

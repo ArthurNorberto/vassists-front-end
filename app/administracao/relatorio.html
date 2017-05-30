@@ -68,6 +68,14 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-12">
+                            <div uib-dropdown="" class="btn-group dropdown">
+                                <button uib-dropdown-toggle="" class="btn btn-xs btn-warning">
+                                                <i class="fa fa-file-o"></i>  Exportar <span class="caret"></span>
+                                            </button>
+                                <ul class="dropdown-menu" uib-dropdown-menu>
+                                    <li><a ng-click="vm.exportarExcel(registro);">Excel</a></li>
+                                </ul>
+                            </div>
                             <pre ng-show="vm.erro" class="alert alert-info">{{vm.erro}}</pre>
                             <pre ng-show="vm.mensagem" class="alert alert-success">{{vm.mensagem}}</pre>
                             <div class="table-responsive">
@@ -79,14 +87,15 @@
                                                 <i class="fa fa-cog"></i> <span class="caret"></span>
                                             </button>
                                                 <ul class="dropdown-menu" uib-dropdown-menu>
-                                                    <li><a ng-click="vm.editar(registro);">Visualizar</a></li>
+                                                    <li><a ng-click="vm.excluirPonto(registro.Codigo);">Excluir</a></li>
+                                                    <li><a ng-click="vm.visualizar(registro);">Visualizar</a></li>
                                                 </ul>
                                             </div>
                                         </td>
                                         <td data-title="'Nome Usuário'">{{registro.NomeUsuario}}</td>
                                         <td data-title="'Data Cadastrado'" class="text-center">{{registro.DataCadastrado | date:'dd/MM/yyyy H:mm:ss'}}</td>
                                         <td data-title="'Problema'">{{registro.Tipo}}</td>
-                                        <td data-title="'Enderecço'" class="text-center">{{registro.Endereco}}</td>
+                                        <td data-title="'Endereço'" class="text-center">{{registro.EnderecoCompleto}}</td>
                                     </tr>
                                     <tr>
                                         <td colspan="5" class="text-center" ng-show="$data.length == 0 && !vm.carregandoGrid">Nenhum registro encontrado.</td>

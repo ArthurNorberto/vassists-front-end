@@ -96,10 +96,22 @@
                     controller: 'AlterarSenhaController',
                     controllerAs: 'vm'
                 })
+                .state('app.administracao-mensagem', {
+                    url: '/administracao/mensagem',
+                    templateUrl: 'app/administracao/mensagem.html',
+                    controller: 'MensagemController',
+                    controllerAs: 'vm'
+                })
                 .state('app.administracao-relatorio', {
                     url: '/administracao/relatorio',
                     templateUrl: 'app/administracao/relatorio.html',
                     controller: 'RelatorioController',
+                    controllerAs: 'vm'
+                })
+                .state('app.administracao-visualizar-ponto', {
+                    url: '/administracao/visualizar-ponto/:parametro',
+                    templateUrl: 'app/administracao/visualizar-ponto-adm.html',
+                    controller: 'VisualizarPontoAdmController',
                     controllerAs: 'vm'
                 })
                 .state('app.administracao-cadastrar-usuario', {

@@ -72,7 +72,10 @@
                     Observacao: dados.Observacao,
                     Latitude: dados.Latitude,
                     Longitude: dados.Longitude,
-                    Endereco: dados.Endereco
+                    Endereco: dados.Endereco,
+                    Estado: dados.Estado,
+                    Cidade: dados.Cidade,
+                    Pais: dados.Pais
                 })
                 .then(function (resposta) {
                     service.data = resposta.data;

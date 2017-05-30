@@ -2,7 +2,7 @@
 
 (function () {
 
-    function RelatorioController($state, $cookies, PainelService, PontosService, NgTableParams) {
+    function RelatorioController($state, $cookies, PainelService, PontosService, NgTableParams, MensagemService) {
         var vm = this;
         var infoUsuario = $cookies.getObject('infoUsuario');
 
@@ -19,6 +19,9 @@
 
         vm.recuperarRelatorio = recuperarRelatorio;
         vm.limpar = limpar;
+        vm.excluirPonto = excluirPonto;
+        vm.visualizar = visualizar;
+        vm.exportarExcel = exportarExcel;
 
         recuperarTipo();
         carregarTabela();
@@ -33,6 +36,42 @@
 
             });
 
+        };
+
+        function visualizar(registro) {
+
+            $state.go('app.administracao-visualizar-ponto', {
+                parametro: registro.Codigo
+            });
+
+        };
+
+        function exportarExcel(registro) {
+
+        };
+
+        function excluirPonto(codigoPonto) {
+
+            MensagemService.aviso(function (isConfirm) {
+                //Duas opções vão aparecer: Sim e Não
+                if (isConfirm) {
+
+                    PontosService.excluir(codigoPonto).then(function () {
+
+                        toastr.success('Ponto excluído com sucesso');
+                        
+                        recuperarRelatorio();
+
+
+                    }, function (resposta) {
+                        vm.erro = resposta.data;
+                    });
+
+                } else {
+                    //Aqui o usuário clicou em "Não"
+                }
+
+            });
         };
 
 

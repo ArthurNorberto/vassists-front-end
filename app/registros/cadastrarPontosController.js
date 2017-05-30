@@ -18,8 +18,15 @@
             Observacao: '',
             Latitude: '',
             Longitude: '',
-            Endereco: ''
+            Endereco: '',
+            Estado: '',
+            Cidade: '',
+            Pais: ''
         };
+
+        var estado = '';
+        var cidade = '';
+        var pais = '';
 
         vm.cadastrarPonto = cadastrarPonto;
         vm.limparCampos = limparCampos;
@@ -137,6 +144,9 @@
                 if (isConfirm) {
 
                     vm.dados.Endereco = endereco;
+                    vm.dados.Pais = pais;
+                    vm.dados.Cidade = cidade;
+                    vm.dados.Estado = estado;
 
                     PontosService.registrarPonto(vm.dados).then(function () {
 
@@ -147,7 +157,7 @@
 
                     });
 
-
+                    clearMarkers();
 
                 } else {
                     //Aqui o usuário clicou em "Não"
@@ -190,10 +200,21 @@
             }, function (results, status) {
                 if (status === google.maps.GeocoderStatus.OK) {
                     if (results[0]) {
-                        // @url: https://developers.google.com/maps/documentation/javascript/geocoding#ReverseGeocoding
-                        // We return the second result, which is less specific than the first
-                        //  (in this case, a neighborhood name)
+
                         endereco = results[0].formatted_address;
+                        var result = results[0].address_components;
+                        for (var i = 0; i < result.length; ++i) {
+                            if (result[i].types[0] == "administrative_area_level_2") {
+                                cidade = result[i].long_name;
+                            }
+                            if (result[i].types[0] == "administrative_area_level_1") {
+                                estado = result[i].short_name;
+                            }
+                            if (result[i].types[0] == "country") {
+                                pais = result[i].short_name;
+                            }
+
+                        }
                     } else {
                         alert('No results found');
                     }

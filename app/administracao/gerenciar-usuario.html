@@ -51,6 +51,14 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-12">
+                            <div uib-dropdown="" class="btn-group dropdown">
+                                <button uib-dropdown-toggle="" class="btn btn-xs btn-warning">
+                                                <i class="fa fa-file-o"></i>  Exportar <span class="caret"></span>
+                                            </button>
+                                <ul class="dropdown-menu" uib-dropdown-menu>
+                                    <li><a ng-click="vm.exportarExcel(registro);">Excel</a></li>
+                                </ul>
+                            </div>
                             <pre ng-show="vm.erro" class="alert alert-info">{{vm.erro}}</pre>
                             <pre ng-show="vm.mensagem" class="alert alert-success">{{vm.mensagem}}</pre>
                             <button type="button" ng-click="vm.novoUsuario();" class="btn-sm btn btn-primary m-b"><i class="fa fa-plus-circle"></i> Novo</button>
