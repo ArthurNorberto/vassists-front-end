@@ -9,24 +9,38 @@
                 <div class="panel-heading font-bold"><i class="fa fa-search" aria-hidden="true"></i> Filtros
                 </div>
                 <div class="panel-body">
-                    <form method="get" name="meusPontos">
+                    <form method="get" name="meusPontos" ng-submit="vm.buscarMeusPontos()">
                         <div class="form-group">
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Data Inicio</label>
                                         <input ng-model="vm.filtros.DataInicial" atg-datepicker="" max-date="vm.filtros.DataFinal" name="DataInicial" type="text"
                                             class="form-control input-sm " placeholder="__/__/____">
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Data Fim</label>
                                         <input ng-model="vm.filtros.DataFinal" atg-datepicker="" min-date="vm.filtros.DataInicial" name="DataFinal" type="text" class="form-control input-sm "
                                             placeholder="__/__/____">
                                     </div>
                                 </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Problema</label>
+                                        <select name="problemaSelect" class="form-control input-sm" ng-options="Tipo.Codigo as Tipo.Descricao for Tipo in vm.listaTipo"
+                                            ng-model="vm.filtros.CodigoTipo">
+									<option value="">Selecione um Problema</option></select>
 
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Endereço</label>
+                                        <input type="text" class="form-control input-sm" ng-model="vm.filtros.Endereco" placeholder="Exemplo: fulano">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="line line-dashed b-b line-lg pull-in "></div>
@@ -58,19 +72,20 @@
                                             </button>
                                                 <ul class="dropdown-menu" uib-dropdown-menu>
                                                     <li><a ng-click="vm.visualizar(registro);">Visualizar Ponto</a></li>
+                                                    <li><a ng-click="vm.deletarPonto(registro);">Deletar Ponto</a></li>
                                                 </ul>
                                             </div>
                                         </td>
-                                        <td data-title="'Nome'">{{registro.Nome}}</td>
-                                        <td data-title="'Email'" class="text-center">{{registro.Email}}</td>
-                                        <td data-title="'Perfil'">{{registro.Perfil}}</td>
-                                        <td data-title="'Último Acesso'">{{registro.DataUltimoLogin | date:'dd/MM/yyyy H:mm:ss'}}</td>
+                                        <td data-title="'Data Cadastrado'">{{registro.DataCadastrado | date:'dd/MM/yyyy H:mm:ss'}}</td>
+                                        <td data-title="'Endereco'" class="text-center">{{registro.EnderecoCompleto}}</td>
+                                        <td data-title="'Tipo'">{{registro.Tipo}}</td>
+
                                     </tr>
                                     <tr>
-                                        <td colspan="5" class="text-center" ng-show="$data.length == 0 && !vm.carregandoGrid">Nenhum registro encontrado.</td>
+                                        <td colspan="4" class="text-center" ng-show="$data.length == 0 && !vm.carregandoGrid">Nenhum registro encontrado.</td>
                                     </tr>
                                     <tr>
-                                        <td colspan="5" class="text-center" ng-show="vm.carregandoGrid">
+                                        <td colspan="4" class="text-center" ng-show="vm.carregandoGrid">
                                             <i class="fa fa-spinner fa-spin"></i>
                                         </td>
                                     </tr>

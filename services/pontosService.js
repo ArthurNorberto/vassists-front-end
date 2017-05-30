@@ -9,8 +9,12 @@
         var service = {
             listaPontos: '',
             data: '',
+            listaMeusPontos: '',
             listarPontos: listarPontos,
-            registrarPonto: registrarPonto
+            listarMeusPontos: listarMeusPontos,
+            registrarPonto: registrarPonto,
+            excluir: excluir,
+            recuperarPonto: recuperarPonto
         };
 
         return service;
@@ -34,6 +38,32 @@
                 });
         };
 
+        function listarMeusPontos(filtro) {
+            return $http
+                .get(url + '/api/meu-ponto', {
+                    params: {
+                        qt: filtro.qt,
+                        pg: filtro.pg,
+                        CodigoTipo: filtro.CodigoTipo,
+                        CodigoUsuario: filtro.CodigoUsuario,
+                        DataInicial: filtro.DataInicial,
+                        DataFinal: filtro.DataFinal,
+                        Endereco: filtro.Endereco
+                    }
+                })
+                .then(function (resposta) {
+                    service.listaMeusPontos = resposta.data;
+                });
+        };
+
+        function recuperarPonto(codigo) {
+            return $http
+                .get(url + '/api/ponto/' + codigo)
+                .then(function (resposta) {
+                    service.dados = resposta.data;
+                });
+        };
+
         function registrarPonto(dados) {
             return $http
                 .post(url + '/api/ponto', {
@@ -44,6 +74,14 @@
                     Longitude: dados.Longitude,
                     Endereco: dados.Endereco
                 })
+                .then(function (resposta) {
+                    service.data = resposta.data;
+                });
+        };
+
+        function excluir(codigo) {
+            return $http
+                .delete(url + '/api/ponto/' + codigo)
                 .then(function (resposta) {
                     service.data = resposta.data;
                 });

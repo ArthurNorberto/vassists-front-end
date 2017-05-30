@@ -1,0 +1,57 @@
+<div class="bg-system-light lter b-b wrapper-md ng-scope">
+    <h1 class="m-n font-thin h3">Visualizar Ponto</h1>
+    <small class="text-muted">Registro <i class="fa fa-angle-right"></i> Meus Pontos <i class="fa fa-angle-right"></i> Visualizar Ponto</small>
+</div>
+<div class="row">
+    <div class="wrapper-md">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading font-bold"><i class="fa fa-edit" aria-hidden="true"></i> Visualizar
+                </div>
+                <div class="panel-body">
+                    <form method="get" name="alterarDadosForm" ng-submit="vm.excluirPonto()">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Endereço Completo</label>
+                                        <input type="text" class="form-control input-sm" disabled="true" ng-model="vm.dados.EnderecoCompleto">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Data Registrada</label>
+                                        <input type="email" class="form-control input-sm" disabled="true" ng-model="vm.dados.DataCadastrado">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Tipo</label>
+                                        <input type="text" class="form-control input-sm" disabled="true" ng-model="vm.dados.Tipo">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Observação</label>
+                                        <textarea class="form-control input-sm" disabled="true" ng-model="vm.dados.Observacao"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="line line-dashed b-b line-lg pull-in"></div>
+                        <button type="submit" class="btn-sm btn btn-primary btn-addon"><i class="fa fa-trash"></i> Excluir</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row row-sm text-center box-index">
+        </div>
+    </div>
+</div>

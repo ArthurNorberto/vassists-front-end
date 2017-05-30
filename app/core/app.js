@@ -138,6 +138,24 @@
                     controller: 'MeusPontosController',
                     controllerAs: 'vm'
                 })
+                .state('app.visualizar-ponto', {
+                    url: '/registros/meus-pontos/:parametro',
+                    templateUrl: 'app/registros/visualizar-ponto.html',
+                    controller: 'VisualizarPontoController',
+                    controllerAs: 'vm'
+                })
+                .state('app.estatisticas-usuarios', {
+                    url: '/estatisticas/dados-usuarios',
+                    templateUrl: 'app/estatisticas/dados-usuarios.html',
+                    controller: 'DadosUsuariosController',
+                    controllerAs: 'vm'
+                })
+                .state('app.estatisticas-pontos', {
+                    url: '/estatisticas/dados-pontos',
+                    templateUrl: 'app/estatisticas/dados-pontos.html',
+                    controller: 'DadosPontosController',
+                    controllerAs: 'vm'
+                })
                 .state('app.forbidden', {
                     url: '/forbidden',
                     templateUrl: 'app/core/blocks/forbidden.html',

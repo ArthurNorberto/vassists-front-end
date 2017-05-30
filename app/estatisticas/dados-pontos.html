@@ -23,7 +23,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Email</label>
-                                        <input type="email" class="form-control input-sm" required ng-model="vm.dados.Email">
+                                        <input type="text" class="form-control input-sm" required ng-model="vm.dados.Email">
                                     </div>
                                 </div>
                             </div>
@@ -31,7 +31,9 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Perfil</label>
-                                        <input type="text" class="form-control input-sm" disabled="true" ng-model="vm.dados.Perfil">
+                                        <select name="perfilSelect" class="form-control input-sm" ng-options="Perfil.Codigo as Perfil.Descricao for Perfil in vm.listaPerfil"
+                                            ng-model="vm.dados.CodigoPerfil">
+									<option value="">Selecione um Perfil</option></select>
                                     </div>
                                 </div>
                             </div>
