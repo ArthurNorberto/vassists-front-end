@@ -46,7 +46,7 @@
                 events: true,
             });
 
-            $urlRouterProvider.otherwise('/landpage');
+            $urlRouterProvider.otherwise('/login');
 
             $httpProvider.interceptors.push('ApiService');
 
