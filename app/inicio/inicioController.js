@@ -10,8 +10,13 @@
 
         vm.positions = [];
         vm.tamanhoTotal = '';
+        vm.current = 0;
+
+        vm.center = [];
 
         vm.setPositions = setPositions;
+        vm.proximo = proximo;
+        vm.anterior = anterior;
 
         listaUltimasMensagens();
 
@@ -37,8 +42,16 @@
         function configurarPositions(listaPontos) {
 
             var tamanho = listaPontos.length;
+
             vm.tamanhoTotal = tamanho;
+
             var aux = [];
+
+            if (tamanho > 0) {
+                vm.center = [listaPontos[0].Latitude, listaPontos[0].Longitude];
+            }
+
+
 
             while (tamanho--) {
 
@@ -66,6 +79,37 @@
             }, function (resposta) {
 
             });
+        };
+
+        function anterior() {
+
+            if (vm.tamanhoTotal > 0) {
+
+                vm.center = [vm.listaTodosPontos[vm.current].Latitude, vm.listaTodosPontos[vm.current].Longitude];
+
+                vm.current--;
+
+                if (vm.current < 0) {
+                    vm.current = vm.tamanhoTotal;
+                }
+            }
+
+        };
+
+        function proximo() {
+
+            if (vm.tamanhoTotal > 0) {
+
+                vm.center = [vm.listaTodosPontos[vm.current].Latitude, vm.listaTodosPontos[vm.current].Longitude];
+
+                vm.current++;
+
+                if (vm.current == vm.tamanhoTotal) {
+                    vm.current = 0;
+                }
+
+            }
+
         };
 
     }

@@ -15,7 +15,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group ">
                                         <div map-lazy-load="https://maps.google.com/maps/api/js" map-lazy-load-params="{{vm.googleMapsUrl}} ">
-                                            <ng-map center="current-position">
+                                            <ng-map center="[-20.33107, -40.35356]">
                                                 <custom-marker ng-repeat="p in vm.positions track by $index" id="custom-marker-{{$index}}" position="{{p.pos}}">
                                                     <div class="marker-class-container">
                                                         <div class="marker-class-box">
@@ -37,6 +37,9 @@
                         <div class="line line-dashed b-b line-lg pull-in "></div>
                         <div class="row ">
                             <div class="col-md-12 ">
+                                <!--     <button type="button" ng-click="vm.anterior();" class="btn-sm btn btn-default btn-addon"><i class="fa fa-arrow-left"></i> Ver Ponto Anterior</button>
+                                <button type="button" ng-click="vm.proximo();" class="btn-sm btn btn-default btn-addon"><i class="fa fa-arrow-right"></i> Ver Proximo</button>
+-->
                                 <label>Quantidade de Pontos : {{vm.tamanhoTotal}}</label>
 
 
