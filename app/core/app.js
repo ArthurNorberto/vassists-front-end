@@ -168,6 +168,12 @@
                     controller: 'DadosPontosController',
                     controllerAs: 'vm'
                 })
+                .state('app.sobre', {
+                    url: '/sobre',
+                    templateUrl: 'app/sobre/sobre.html',
+                    controller: 'SobreController',
+                    controllerAs: 'vm'
+                })
                 .state('app.forbidden', {
                     url: '/forbidden',
                     templateUrl: 'app/core/blocks/forbidden.html',

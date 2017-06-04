@@ -6,27 +6,40 @@
     <div class="wrapper-md">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading font-bold"><i class="fa fa-info" aria-hidden="true"></i> Informações
+                <div class="panel-heading font-bold"><i class="fa fa-map-marker" aria-hidden="true"></i> Pontos Cadastrados
                 </div>
                 <div class="panel-body">
-                    <form class="form-horizontal ng-pristine ng-valid ng-valid-date ng-valid-required ng-valid-date-disabled" method="get">
+                    <form method="get" name="cadastrarPontos" ng-submit="vm.cadastrarPonto();">
                         <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group ">
+                                        <div map-lazy-load="https://maps.google.com/maps/api/js" map-lazy-load-params="{{vm.googleMapsUrl}} ">
+                                            <ng-map center="current-position">
+                                                <custom-marker ng-repeat="p in vm.positions track by $index" id="custom-marker-{{$index}}" position="{{p.pos}}">
+                                                    <div class="marker-class-container">
+                                                        <div class="marker-class-box">
 
-                            <div class="row m-t m-l e m-r">
-                                <span class="col-sm-12"><i class="fa fa-check-square-o fa-2x"></i>Cadastrar novos pontos
-					</span>
+                                                            <label>{{p.usuario}}: {{p.texto}}</label>
+                                                            <br />
+                                                            <label>Endereco {{p.endereco}}</label>
+
+                                                        </div>
+                                                    </div>
+                                                </custom-marker>
+
+                                            </ng-map>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="row m-t m-l e m-r">
-                                <span class="col-sm-12"><i class="fa fa-check-square-o fa-2x"></i>Visualizar os pontos cadastrados
-					</span>
-                            </div>
-                            <div class="row m-t m-l e m-r">
-                                <span class="col-sm-12"><i class="fa fa-check-square-o fa-2x"></i> Alterar informações de Login
-					</span>
-                            </div>
-                            <div class="row m-t m-l e m-r">
-                                <span class="col-sm-12"><i class="fa fa-check-square-o fa-2x"></i> Visualizar estatísticas
-					</span>
+                        </div>
+                        <div class="line line-dashed b-b line-lg pull-in "></div>
+                        <div class="row ">
+                            <div class="col-md-12 ">
+                                <label>Quantidade de Pontos : {{vm.tamanhoTotal}}</label>
+
+
                             </div>
                         </div>
                     </form>

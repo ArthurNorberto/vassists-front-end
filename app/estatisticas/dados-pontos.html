@@ -12,15 +12,17 @@
                     <form method="get" name="alterarDadosForm">
                         <div class="form-group">
                             <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-
-                                        <div class="row padder-v">
-                                            <div class="col-sm-12">
-                                                <div google-chart chart="vm.graficoPontos"></div>
-                                            </div>
-                                        </div>
+                                <div class="col-md-6">
+                                    <div class="panel-heading font-bold">
+                                        Quantidade x Problema
                                     </div>
+                                    <div google-chart chart="vm.graficoPontos"></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="panel-heading font-bold">
+                                        Quantidade x Estado
+                                    </div>
+                                    <div google-chart chart="vm.graficoPontosEstado"></div>
                                 </div>
                             </div>
                         </div>

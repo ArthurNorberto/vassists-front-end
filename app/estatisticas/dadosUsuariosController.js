@@ -44,7 +44,7 @@
                         height: '90%'
                     },
                     legend: {
-                        position: 'none'
+                        position: 'left'
                     },
                     slices: {
                         1: {

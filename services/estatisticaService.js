@@ -10,8 +10,10 @@
             listaGraficoUsuarios: '',
             listaGraficoPontos: '',
             data: '',
+            listaGraficoPontosEstado: '',
             retornarGraficoUsuarios: retornarGraficoUsuarios,
-            retornarGraficoPontos: retornarGraficoPontos
+            retornarGraficoPontos: retornarGraficoPontos,
+            retornarGraficoPontosEstado: retornarGraficoPontosEstado
 
         };
 
@@ -31,6 +33,14 @@
                 .get(url + '/api/estatistica/ponto')
                 .then(function (resposta) {
                     service.listaGraficoPontos = resposta.data;
+                });
+        };
+
+        function retornarGraficoPontosEstado() {
+            return $http
+                .get(url + '/api/estatistica/ponto-estado')
+                .then(function (resposta) {
+                    service.listaGraficoPontosEstado = resposta.data;
                 });
         };
 

@@ -10,11 +10,13 @@
             listaPontos: '',
             data: '',
             listaMeusPontos: '',
+            listaTodosPontos: '',
             listarPontos: listarPontos,
             listarMeusPontos: listarMeusPontos,
             registrarPonto: registrarPonto,
             excluir: excluir,
-            recuperarPonto: recuperarPonto
+            recuperarPonto: recuperarPonto,
+            listarTodosPontos: listarTodosPontos
         };
 
         return service;
@@ -53,6 +55,14 @@
                 })
                 .then(function (resposta) {
                     service.listaMeusPontos = resposta.data;
+                });
+        };
+
+        function listarTodosPontos() {
+            return $http
+                .get(url + '/api/todos-ponto')
+                .then(function (resposta) {
+                    service.listaTodosPontos = resposta.data;
                 });
         };
 
