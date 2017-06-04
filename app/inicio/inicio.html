@@ -36,13 +36,19 @@
                         </div>
                         <div class="line line-dashed b-b line-lg pull-in "></div>
                         <div class="row ">
-                            <div class="col-md-12 ">
-                                <!--     <button type="button" ng-click="vm.anterior();" class="btn-sm btn btn-default btn-addon"><i class="fa fa-arrow-left"></i> Ver Ponto Anterior</button>
-                                <button type="button" ng-click="vm.proximo();" class="btn-sm btn btn-default btn-addon"><i class="fa fa-arrow-right"></i> Ver Proximo</button>
--->
+                            <div class="col-md-4">
+
                                 <label>Quantidade de Pontos : {{vm.tamanhoTotal}}</label>
 
 
+                            </div>
+                            <div class="col-md-4 ">
+                            </div>
+                            <div class="col-md-4 ">
+                                <button type="button" ng-click="vm.anterior();" class="btn-sm btn btn-default btn-addon"><i class="fa fa-arrow-left"></i> Ver Ponto Anterior</button>
+                                <button type="button" ng-click="vm.proximo();" class="btn-sm btn btn-default btn-addon"><i class="fa fa-arrow-right"></i> Ver Proximo</button>
+
+                                <button type="button" ng-click="vm.novoPonto();" class="btn-sm btn btn-primary"><i class="fa fa-plus-circle"></i> Novo</button>
                             </div>
                         </div>
                     </form>
