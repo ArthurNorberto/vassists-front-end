@@ -9,17 +9,19 @@
         var codigoUsuario = $stateParams.parametro;
 
         // Inicialização de variáveis
-
+        vm.listaPerfil = {};
 
 
         // Funções executadas ao iniciar o controlador
-        vm.listaPerfil = {};
+
+        vm.alterarUsuario = alterarUsuario;
+        vm.limpar = limpar;
 
         // Declaração de funções
 
         recuperarPerfil();
         recuperarUsuario();
-        alterarUsuario();
+
 
         function recuperarPerfil() {
 
@@ -46,17 +48,31 @@
 
         function alterarUsuario() {
 
-            UsuarioService.recuperarUsuario(codigoUsuario, vm.dados).then(function () {
+            MensagemService.aviso(function (isConfirm) {
+                //Duas opções vão aparecer: Sim e Não
+                if (isConfirm) {
+                    //Aqui o usuário clicou em "Sim"
+
+                    UsuarioService.alterarUsuario(codigoUsuario, vm.dados).then(function () {
+
+                        toastr.success("Usuário alterado com sucesso");
 
 
+                    }, function (resposta) {
 
-            }, function (resposta) {
+                    });
 
+
+                } else {
+                    //Aqui o usuário clicou em "Não"
+                }
             });
-
         };
 
+        function limpar() {
 
+            recuperarUsuario();
+        };
 
 
     }
