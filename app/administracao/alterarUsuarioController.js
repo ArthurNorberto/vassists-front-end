@@ -35,7 +35,7 @@
 
         function recuperarUsuario() {
 
-            UsuarioService.recuperarUsuario(infoUsuario.Codigo).then(function () {
+            UsuarioService.recuperarUsuario(codigoUsuario).then(function () {
 
                 vm.dados = UsuarioService.usuario;
 
@@ -46,7 +46,7 @@
 
         function alterarUsuario() {
 
-            UsuarioService.recuperarUsuario(infoUsuario.Codigo, vm.dados).then(function () {
+            UsuarioService.recuperarUsuario(codigoUsuario, vm.dados).then(function () {
 
 
 
